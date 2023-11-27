@@ -1,6 +1,6 @@
 # News app (iOS)
 
-iOS application that displays news and its sources.<be>
+iOS application that displays news and its sources.<br>
 The implementation follows good practices, such as modularization, context isolation, single source of truth, etc.
 
 |                                                                            Headlines                                                                             |                                                                           Sources                                                                           |
