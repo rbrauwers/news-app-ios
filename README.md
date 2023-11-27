@@ -1,6 +1,7 @@
 # News app (iOS)
 
-iOS application that displays news and its sources.<br>
+iOS application that displays news and its sources.<be>
+The implementation follows good practices, such as modularization, context isolation, single source of truth, etc.
 
 |                                                                            Headlines                                                                             |                                                                           Sources                                                                           |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -8,7 +9,7 @@ iOS application that displays news and its sources.<br>
 
 
 ## How it works
-Data is fetched from the [News API](https://newsapi.org/) and stored locally.
+Data is fetched from the [News API](https://newsapi.org/).
 
 ## Setup
 Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info.plist/NewsApiKey`:
