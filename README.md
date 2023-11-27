@@ -12,7 +12,14 @@ The implementation follows good practices, such as modularization, context isola
 Data is fetched from the [News API](https://newsapi.org/).
 
 ## Setup
-Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info.plist/NewsApiKey`:
+Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info.plist`:
+```
+<dict>
+	<key>NewsApiKey</key>
+	<string></string>
+</dict>
+```
+
 
 ## Stack
 - [Swift UI](https://developer.apple.com/xcode/swiftui/)
