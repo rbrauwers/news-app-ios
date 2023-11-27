@@ -13,3 +13,7 @@ Data is fetched from the [News API](https://newsapi.org/).
 
 ## Setup
 Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info.plist/NewsApiKey`:
+
+## Stack
+- [Swift UI](https://developer.apple.com/xcode/swiftui/)
+- [Swift concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
