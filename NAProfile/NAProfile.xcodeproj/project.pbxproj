@@ -7,117 +7,130 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF8BC1C82B10B0FD000822D2 /* NAModels.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1C72B10B0FD000822D2 /* NAModels.docc */; };
-		FF8BC1C92B10B0FD000822D2 /* NAModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC1C62B10B0FD000822D2 /* NAModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF8BC1D62B10B148000822D2 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1D52B10B148000822D2 /* Source.swift */; };
-		FF8BC1D82B10B1C0000822D2 /* SourcesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1D72B10B1C0000822D2 /* SourcesResponse.swift */; };
-		FF8BC22D2B10E5F9000822D2 /* HeadlinesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC22C2B10E5F9000822D2 /* HeadlinesResponse.swift */; };
-		FF8BC22F2B10E654000822D2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC22E2B10E654000822D2 /* Article.swift */; };
-		FF8BC2452B15F6A1000822D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2442B15F6A1000822D2 /* User.swift */; };
-		FF8BC26C2B1607CA000822D2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC26B2B1607CA000822D2 /* AppState.swift */; };
+		FF8BC2552B15FD0D000822D2 /* NAProfile.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2542B15FD0D000822D2 /* NAProfile.docc */; };
+		FF8BC2562B15FD0D000822D2 /* NAProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC2532B15FD0D000822D2 /* NAProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF8BC2632B15FD1D000822D2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2622B15FD1D000822D2 /* ProfileView.swift */; };
+		FF8BC2662B15FD38000822D2 /* NAModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2652B15FD38000822D2 /* NAModels.framework */; };
+		FF8BC2672B15FD38000822D2 /* NAModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2652B15FD38000822D2 /* NAModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FF8BC2682B15FD38000822D2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF8BC2672B15FD38000822D2 /* NAModels.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		FF8BC1C32B10B0FD000822D2 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF8BC1C62B10B0FD000822D2 /* NAModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAModels.h; sourceTree = "<group>"; };
-		FF8BC1C72B10B0FD000822D2 /* NAModels.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NAModels.docc; sourceTree = "<group>"; };
-		FF8BC1D52B10B148000822D2 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
-		FF8BC1D72B10B1C0000822D2 /* SourcesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesResponse.swift; sourceTree = "<group>"; };
-		FF8BC22C2B10E5F9000822D2 /* HeadlinesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadlinesResponse.swift; sourceTree = "<group>"; };
-		FF8BC22E2B10E654000822D2 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		FF8BC2442B15F6A1000822D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FF8BC26B2B1607CA000822D2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF8BC2502B15FD0D000822D2 /* NAProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NAProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8BC2532B15FD0D000822D2 /* NAProfile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAProfile.h; sourceTree = "<group>"; };
+		FF8BC2542B15FD0D000822D2 /* NAProfile.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NAProfile.docc; sourceTree = "<group>"; };
+		FF8BC2622B15FD1D000822D2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FF8BC2652B15FD38000822D2 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FF8BC1C02B10B0FD000822D2 /* Frameworks */ = {
+		FF8BC24D2B15FD0D000822D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8BC2662B15FD38000822D2 /* NAModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF8BC1B92B10B0FD000822D2 = {
+		FF8BC2462B15FD0D000822D2 = {
 			isa = PBXGroup;
 			children = (
-				FF8BC2442B15F6A1000822D2 /* User.swift */,
-				FF8BC1C52B10B0FD000822D2 /* NAModels */,
-				FF8BC1C42B10B0FD000822D2 /* Products */,
+				FF8BC2522B15FD0D000822D2 /* NAProfile */,
+				FF8BC2512B15FD0D000822D2 /* Products */,
+				FF8BC2642B15FD38000822D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		FF8BC1C42B10B0FD000822D2 /* Products */ = {
+		FF8BC2512B15FD0D000822D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF8BC1C32B10B0FD000822D2 /* NAModels.framework */,
+				FF8BC2502B15FD0D000822D2 /* NAProfile.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FF8BC1C52B10B0FD000822D2 /* NAModels */ = {
+		FF8BC2522B15FD0D000822D2 /* NAProfile */ = {
 			isa = PBXGroup;
 			children = (
-				FF8BC22E2B10E654000822D2 /* Article.swift */,
-				FF8BC1C62B10B0FD000822D2 /* NAModels.h */,
-				FF8BC1C72B10B0FD000822D2 /* NAModels.docc */,
-				FF8BC1D52B10B148000822D2 /* Source.swift */,
-				FF8BC1D72B10B1C0000822D2 /* SourcesResponse.swift */,
-				FF8BC22C2B10E5F9000822D2 /* HeadlinesResponse.swift */,
-				FF8BC26B2B1607CA000822D2 /* AppState.swift */,
+				FF8BC2532B15FD0D000822D2 /* NAProfile.h */,
+				FF8BC2542B15FD0D000822D2 /* NAProfile.docc */,
+				FF8BC2622B15FD1D000822D2 /* ProfileView.swift */,
 			);
-			path = NAModels;
+			path = NAProfile;
+			sourceTree = "<group>";
+		};
+		FF8BC2642B15FD38000822D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF8BC2652B15FD38000822D2 /* NAModels.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		FF8BC1BE2B10B0FD000822D2 /* Headers */ = {
+		FF8BC24B2B15FD0D000822D2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8BC1C92B10B0FD000822D2 /* NAModels.h in Headers */,
+				FF8BC2562B15FD0D000822D2 /* NAProfile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FF8BC1C22B10B0FD000822D2 /* NAModels */ = {
+		FF8BC24F2B15FD0D000822D2 /* NAProfile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FF8BC1CC2B10B0FD000822D2 /* Build configuration list for PBXNativeTarget "NAModels" */;
+			buildConfigurationList = FF8BC2592B15FD0D000822D2 /* Build configuration list for PBXNativeTarget "NAProfile" */;
 			buildPhases = (
-				FF8BC1BE2B10B0FD000822D2 /* Headers */,
-				FF8BC1BF2B10B0FD000822D2 /* Sources */,
-				FF8BC1C02B10B0FD000822D2 /* Frameworks */,
-				FF8BC1C12B10B0FD000822D2 /* Resources */,
+				FF8BC24B2B15FD0D000822D2 /* Headers */,
+				FF8BC24C2B15FD0D000822D2 /* Sources */,
+				FF8BC24D2B15FD0D000822D2 /* Frameworks */,
+				FF8BC24E2B15FD0D000822D2 /* Resources */,
+				FF8BC2682B15FD38000822D2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NAModels;
-			productName = NAModels;
-			productReference = FF8BC1C32B10B0FD000822D2 /* NAModels.framework */;
+			name = NAProfile;
+			productName = NAProfile;
+			productReference = FF8BC2502B15FD0D000822D2 /* NAProfile.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FF8BC1BA2B10B0FD000822D2 /* Project object */ = {
+		FF8BC2472B15FD0D000822D2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					FF8BC1C22B10B0FD000822D2 = {
+					FF8BC24F2B15FD0D000822D2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = FF8BC1BD2B10B0FD000822D2 /* Build configuration list for PBXProject "NAModels" */;
+			buildConfigurationList = FF8BC24A2B15FD0D000822D2 /* Build configuration list for PBXProject "NAProfile" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -125,18 +138,18 @@
 				en,
 				Base,
 			);
-			mainGroup = FF8BC1B92B10B0FD000822D2;
-			productRefGroup = FF8BC1C42B10B0FD000822D2 /* Products */;
+			mainGroup = FF8BC2462B15FD0D000822D2;
+			productRefGroup = FF8BC2512B15FD0D000822D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FF8BC1C22B10B0FD000822D2 /* NAModels */,
+				FF8BC24F2B15FD0D000822D2 /* NAProfile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FF8BC1C12B10B0FD000822D2 /* Resources */ = {
+		FF8BC24E2B15FD0D000822D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -146,24 +159,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FF8BC1BF2B10B0FD000822D2 /* Sources */ = {
+		FF8BC24C2B15FD0D000822D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8BC1D62B10B148000822D2 /* Source.swift in Sources */,
-				FF8BC1C82B10B0FD000822D2 /* NAModels.docc in Sources */,
-				FF8BC26C2B1607CA000822D2 /* AppState.swift in Sources */,
-				FF8BC2452B15F6A1000822D2 /* User.swift in Sources */,
-				FF8BC22D2B10E5F9000822D2 /* HeadlinesResponse.swift in Sources */,
-				FF8BC1D82B10B1C0000822D2 /* SourcesResponse.swift in Sources */,
-				FF8BC22F2B10E654000822D2 /* Article.swift in Sources */,
+				FF8BC2632B15FD1D000822D2 /* ProfileView.swift in Sources */,
+				FF8BC2552B15FD0D000822D2 /* NAProfile.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		FF8BC1CA2B10B0FD000822D2 /* Debug */ = {
+		FF8BC2572B15FD0D000822D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -216,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -229,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		FF8BC1CB2B10B0FD000822D2 /* Release */ = {
+		FF8BC2582B15FD0D000822D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -288,7 +296,7 @@
 			};
 			name = Release;
 		};
-		FF8BC1CD2B10B0FD000822D2 /* Debug */ = {
+		FF8BC25A2B15FD0D000822D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -302,7 +310,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +318,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NAModels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NAProfile;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -320,7 +327,7 @@
 			};
 			name = Debug;
 		};
-		FF8BC1CE2B10B0FD000822D2 /* Release */ = {
+		FF8BC25B2B15FD0D000822D2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -334,7 +341,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,7 +349,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NAModels;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NAProfile;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -355,25 +361,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FF8BC1BD2B10B0FD000822D2 /* Build configuration list for PBXProject "NAModels" */ = {
+		FF8BC24A2B15FD0D000822D2 /* Build configuration list for PBXProject "NAProfile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF8BC1CA2B10B0FD000822D2 /* Debug */,
-				FF8BC1CB2B10B0FD000822D2 /* Release */,
+				FF8BC2572B15FD0D000822D2 /* Debug */,
+				FF8BC2582B15FD0D000822D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FF8BC1CC2B10B0FD000822D2 /* Build configuration list for PBXNativeTarget "NAModels" */ = {
+		FF8BC2592B15FD0D000822D2 /* Build configuration list for PBXNativeTarget "NAProfile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FF8BC1CD2B10B0FD000822D2 /* Debug */,
-				FF8BC1CE2B10B0FD000822D2 /* Release */,
+				FF8BC25A2B15FD0D000822D2 /* Debug */,
+				FF8BC25B2B15FD0D000822D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FF8BC1BA2B10B0FD000822D2 /* Project object */;
+	rootObject = FF8BC2472B15FD0D000822D2 /* Project object */;
 }

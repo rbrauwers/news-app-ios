@@ -9,6 +9,7 @@ import SwiftUI
 import NAHeadlines
 import NANetwork
 import NASources
+import NAProfile
 
 private enum SelectedTab: String, CaseIterable {
     case headlines
@@ -46,6 +47,12 @@ struct TabViewIOS14: View {
         }.toolbar {
             ToolbarItem(placement: .principal) {
                 Text(title).font(.largeTitle)
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: ProfileView()) {
+                    Image(systemName: "person.circle")
+                }
             }
         }
         .onChange(of: selectedTab, perform: { value in

@@ -26,6 +26,7 @@ public struct ArticlesView : View {
 @available(iOS 14, *)
 struct ArticlesViewContent : View {
     @StateObject var repository = ArticlesRepository.shared
+    @EnvironmentObject private var appState: AppState
     
     var body: some View {
         VStack(alignment: .center) {
@@ -36,6 +37,8 @@ struct ArticlesViewContent : View {
                     .background(Color.red)
                     .foregroundColor(.white)
             }
+            
+            Text("Hello, \(appState.user.name)")
             
             /*
             NavigationLink(destination: InfoView()) {

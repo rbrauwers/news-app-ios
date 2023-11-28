@@ -7,6 +7,8 @@
 
 import SwiftUI
 import NAData
+import NAModels
+import NAProfile
 
 @main
 struct WeatherProAppWrapper {
@@ -14,6 +16,12 @@ struct WeatherProAppWrapper {
         Task {
             await SourcesRepository.shared.load()
             await ArticlesRepository.shared.load()
+        }
+        
+        // Fixes an odd behaviour with TabItem which content is (some view(s) + a list view)
+        // https://developer.apple.com/forums/thread/690563
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init(idiom: .unspecified)
         }
         
         if #available(iOS 14.0, *) {
@@ -28,9 +36,13 @@ struct WeatherProAppWrapper {
 //@main
 @available(iOS 14.0, *)
 struct NewsApp: App {
+    
+    @StateObject private var appState = AppState(user: User(name: "Rodrigo"))
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(appState)
         }
     }
 }
