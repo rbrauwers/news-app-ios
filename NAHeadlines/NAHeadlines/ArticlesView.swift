@@ -16,6 +16,7 @@ public struct ArticlesView : View {
     public var body: some View {
         if #available(iOS 14, *) {
             ArticlesViewContent()
+                .environmentObject(ArticlesViewModel())
         } else {
             ArticlesViewLegacyContent()
         }
@@ -27,7 +28,7 @@ public struct ArticlesView : View {
 struct ArticlesViewContent : View {
     @StateObject var repository = ArticlesRepository.shared
     @EnvironmentObject private var appState: AppState
-    @StateObject private var viewModel = ArticlesViewModel()
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         ZStack {
@@ -61,8 +62,7 @@ struct ArticlesViewContent : View {
                 ArticlesList(
                     articles: repository.articles.compactMap {
                         ArticleUI(article: $0)
-                    }, 
-                    viewModel: viewModel
+                    }
                 )
             }
             
@@ -87,11 +87,11 @@ struct ArticlesViewLegacyContent : View {
 private struct ArticlesList : View {
     
     let articles: [ArticleUI]
-    @State var viewModel: ArticlesViewModel
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         List(articles) {
-            ArticleItem(article: $0, viewModel: viewModel)
+            ArticleItem(article: $0)
         }
         .listStyle(.plain)
     }
@@ -113,7 +113,7 @@ private extension View {
 private struct ArticleItem : View {
     
     let article: ArticleUI
-    @State var viewModel: ArticlesViewModel
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         HStack(alignment: .center) {
@@ -214,8 +214,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17")
         )
     
-    @State var viewModel = ArticlesViewModel()
-    return ArticlesList(articles: [article, article2], viewModel: viewModel)
+    return ArticlesList(articles: [article, article2])
+        .environmentObject(ArticlesViewModel())
 }
 
 @MainActor
