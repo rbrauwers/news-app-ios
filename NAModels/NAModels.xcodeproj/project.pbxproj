@@ -43,7 +43,6 @@
 		FF8BC1B92B10B0FD000822D2 = {
 			isa = PBXGroup;
 			children = (
-				FF8BC2442B15F6A1000822D2 /* User.swift */,
 				FF8BC1C52B10B0FD000822D2 /* NAModels */,
 				FF8BC1C42B10B0FD000822D2 /* Products */,
 			);
@@ -60,6 +59,7 @@
 		FF8BC1C52B10B0FD000822D2 /* NAModels */ = {
 			isa = PBXGroup;
 			children = (
+				FF8BC2442B15F6A1000822D2 /* User.swift */,
 				FF8BC22E2B10E654000822D2 /* Article.swift */,
 				FF8BC1C62B10B0FD000822D2 /* NAModels.h */,
 				FF8BC1C72B10B0FD000822D2 /* NAModels.docc */,
