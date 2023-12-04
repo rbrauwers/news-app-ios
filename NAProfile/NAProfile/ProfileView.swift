@@ -27,6 +27,7 @@ public struct ProfileView : View {
 @available(iOS 14.0, *)
 struct ProfileViewContent : View {
     @State private var draftUser: User = User(name: "")
+    @State private var infoViewIsActive: Bool = false
     @EnvironmentObject private var appState: AppState
     @Environment(\.presentationMode) private var presentationMode
     
@@ -37,10 +38,17 @@ struct ProfileViewContent : View {
                     Text("Username")
                         .bold()
                         .frame(maxWidth: .infinity, alignment: .leading)
+
                     TextField("Username", text: $draftUser.name)
+                    
+                    Button("Info", systemImage: "info.circle") {
+                        infoViewIsActive.toggle()
+                    }.sheet(isPresented: $infoViewIsActive) {
+                        InfoView(infoViewIsActive: $infoViewIsActive)
+                    }
                 }
             }
-            
+
             Button("Save") {
                 appState.user = draftUser
                 presentationMode.wrappedValue.dismiss()
@@ -65,11 +73,46 @@ struct ProfileViewLegacyContent : View {
     
 }
 
+@available(iOS 14.0, *)
+private struct InfoView : View {
+    @Binding var infoViewIsActive: Bool
+    
+    var body: some View {
+        NavigationView {
+            List {
+                HStack {
+                    Text("Liked articles:")
+                    Text("0")
+                }
+            }.toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        infoViewIsActive = false
+                    }, label: {
+                        Image(systemName: "xmark")
+                    })
+                }
+            }
+        }
+    }
+    
+}
+
 #Preview("Profile view content") {
     if #available(iOS 14.0, *) {
         return ProfileViewContent()
             .environmentObject(AppState(user: User(name: "Bob")))
     } else {
         return ProfileViewLegacyContent()
+    }
+}
+
+#Preview("Info view") {
+    @State var infoViewIsActive: Bool = false
+    
+    if #available(iOS 14.0, *) {
+        return InfoView(infoViewIsActive: $infoViewIsActive)
+    } else {
+        return Text("Not available")
     }
 }
