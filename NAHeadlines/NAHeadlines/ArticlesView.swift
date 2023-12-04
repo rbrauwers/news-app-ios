@@ -27,38 +27,50 @@ public struct ArticlesView : View {
 struct ArticlesViewContent : View {
     @StateObject var repository = ArticlesRepository.shared
     @EnvironmentObject private var appState: AppState
+    @StateObject private var viewModel = ArticlesViewModel()
     
     var body: some View {
-        VStack(alignment: .center) {
-            if let error = repository.error {
-                Text(error.localizedDescription)
-                    .padding(10)
-                    .frame(maxWidth: .infinity, minHeight: 40)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-            }
-            
-            Text("Hello, \(appState.user.name)")
-            
-            /*
-            NavigationLink(destination: InfoView()) {
-                if #available(iOS 16, *) {
-                    // Without this toolbar stuff the tab doesn't obey correct insets
-                    // Maybe this solution works
-                    // https://stackoverflow.com/questions/69165132/swift-ui-clicking-navigation-bar-link-hides-status-bar-on-back
-                    Text("Click me").toolbar(.hidden, for: .bottomBar)
+        ZStack {
+            VStack(alignment: .center) {
+                if let error = repository.error {
+                    Text(error.localizedDescription)
+                        .padding(10)
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .background(Color.red)
+                        .foregroundColor(.white)
                 }
+                
+                Text("Hello, \(appState.user.name)")
+                
+                /*
+                NavigationLink(destination: InfoView()) {
+                    if #available(iOS 16, *) {
+                        // Without this toolbar stuff the tab doesn't obey correct insets
+                        // Maybe this solution works
+                        // https://stackoverflow.com/questions/69165132/swift-ui-clicking-navigation-bar-link-hides-status-bar-on-back
+                        Text("Click me").toolbar(.hidden, for: .bottomBar)
+                    }
+                }
+                .buttonStyle(.plain)
+                 */
+                
+                if repository.isLoading {
+                    ProgressView()
+                }
+                
+                ArticlesList(
+                    articles: repository.articles.compactMap {
+                        ArticleUI(article: $0)
+                    }, 
+                    viewModel: viewModel
+                )
             }
-            .buttonStyle(.plain)
-             */
             
-            if repository.isLoading {
-                ProgressView()
-            }
-            
-            ArticlesList(articles: repository.articles.compactMap {
-                ArticleUI(article: $0)
-            })
+            Image(systemName: "heart")
+                .resizable()
+                .frame(width: 200, height: 200, alignment: .center)
+                .opacity(viewModel.liking ? 1.0 : 0.0)
+                .animation(.easeInOut, value: viewModel.liking)
         }
     }
     
@@ -72,13 +84,14 @@ struct ArticlesViewLegacyContent : View {
     
 }
 
-struct ArticlesList : View {
+private struct ArticlesList : View {
     
     let articles: [ArticleUI]
+    @State var viewModel: ArticlesViewModel
     
     var body: some View {
         List(articles) {
-            ArticleItem(article: $0)
+            ArticleItem(article: $0, viewModel: viewModel)
         }
         .listStyle(.plain)
     }
@@ -97,9 +110,10 @@ private extension View {
     
 }
 
-struct ArticleItem : View {
+private struct ArticleItem : View {
     
     let article: ArticleUI
+    @State var viewModel: ArticlesViewModel
     
     var body: some View {
         HStack(alignment: .center) {
@@ -139,8 +153,14 @@ struct ArticleItem : View {
                 Spacer()
                 
                 if #available(iOS 16.0, *) {
-                    Image(systemName: "heart")
-                        .tint(Color.accentColor)
+                    Button {
+                        viewModel.like()
+                    } label: {
+                        Image(systemName: "heart")
+                    }
+                    .tint(Color.accentColor)
+                    .buttonStyle(ScaleButtonStyle())
+                    
                 } else {
                     Image(systemName: "heart")
                 }
@@ -161,6 +181,13 @@ struct InfoView : View {
         Text("Info screen")
     }
     
+}
+
+private struct ScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 2 : 1)
+    }
 }
 
 
@@ -187,5 +214,22 @@ struct InfoView : View {
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17")
         )
     
-    return ArticlesList(articles: [article, article2])
+    @State var viewModel = ArticlesViewModel()
+    return ArticlesList(articles: [article, article2], viewModel: viewModel)
+}
+
+@MainActor
+private class ArticlesViewModel : ObservableObject {
+    @Published var liking: Bool = false
+    private var likingTask: Task<(),Error>? = nil
+    
+    func like() {
+        likingTask?.cancel()
+        liking = true
+        
+        likingTask = Task {
+            try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+            liking = false
+        }
+    }
 }
