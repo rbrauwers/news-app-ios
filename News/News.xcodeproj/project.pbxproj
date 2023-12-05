@@ -15,6 +15,8 @@
 		FF8BC20F2B10C0C0000822D2 /* NAData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1FB2B10B91B000822D2 /* NAData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2342B10EE06000822D2 /* NAHeadlines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC22B2B10E5D1000822D2 /* NAHeadlines.framework */; };
 		FF8BC2352B10EE06000822D2 /* NAHeadlines.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC22B2B10E5D1000822D2 /* NAHeadlines.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; };
+		FF8BC26A2B16002F000822D2 /* NAProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFDC7A682B10A55700FC8F71 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A672B10A55700FC8F71 /* NewsApp.swift */; };
 		FFDC7A6A2B10A55700FC8F71 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A692B10A55700FC8F71 /* HomeView.swift */; };
 		FFDC7A6C2B10A55800FC8F71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDC7A6B2B10A55800FC8F71 /* Assets.xcassets */; };
@@ -61,6 +63,13 @@
 			remoteGlobalIDString = FF8BC21A2B10E5D1000822D2;
 			remoteInfo = NAHeadlines;
 		};
+		FF8BC2602B15FD0E000822D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8BC25C2B15FD0D000822D2 /* NAProfile.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF8BC2502B15FD0D000822D2;
+			remoteInfo = NAProfile;
+		};
 		FFDC7A752B10A55800FC8F71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FFDC7A5C2B10A55700FC8F71 /* Project object */;
@@ -87,6 +96,7 @@
 				FF8BC20F2B10C0C0000822D2 /* NAData.framework in Embed Frameworks */,
 				FF8BC2352B10EE06000822D2 /* NAHeadlines.framework in Embed Frameworks */,
 				FF8BC1B82B10AF4C000822D2 /* NASources.framework in Embed Frameworks */,
+				FF8BC26A2B16002F000822D2 /* NAProfile.framework in Embed Frameworks */,
 				FF8BC1952B10ACD5000822D2 /* NANetwork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -101,6 +111,7 @@
 		FF8BC1CF2B10B0FD000822D2 /* NAModels.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAModels.xcodeproj; path = ../../NAModels/NAModels.xcodeproj; sourceTree = "<group>"; };
 		FF8BC1F62B10B91B000822D2 /* NAData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAData.xcodeproj; path = ../../NAData/NAData.xcodeproj; sourceTree = "<group>"; };
 		FF8BC2262B10E5D1000822D2 /* NAHeadlines.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAHeadlines.xcodeproj; path = ../../NAHeadlines/NAHeadlines.xcodeproj; sourceTree = "<group>"; };
+		FF8BC25C2B15FD0D000822D2 /* NAProfile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAProfile.xcodeproj; path = ../../NAProfile/NAProfile.xcodeproj; sourceTree = "<group>"; };
 		FFDC7A642B10A55700FC8F71 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDC7A672B10A55700FC8F71 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		FFDC7A692B10A55700FC8F71 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -122,6 +133,7 @@
 				FF8BC20E2B10C0C0000822D2 /* NAData.framework in Frameworks */,
 				FF8BC2342B10EE06000822D2 /* NAHeadlines.framework in Frameworks */,
 				FF8BC1B72B10AF4C000822D2 /* NASources.framework in Frameworks */,
+				FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */,
 				FF8BC1942B10ACD5000822D2 /* NANetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,6 +183,7 @@
 		FF8BC1982B10ADC3000822D2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FF8BC25C2B15FD0D000822D2 /* NAProfile.xcodeproj */,
 				FF8BC2262B10E5D1000822D2 /* NAHeadlines.xcodeproj */,
 				FF8BC1AF2B10ADFD000822D2 /* NASources.xcodeproj */,
 			);
@@ -205,6 +218,14 @@
 			isa = PBXGroup;
 			children = (
 				FF8BC22B2B10E5D1000822D2 /* NAHeadlines.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF8BC25D2B15FD0D000822D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF8BC2612B15FD0E000822D2 /* NAProfile.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -379,6 +400,10 @@
 					ProjectRef = FF8BC18B2B10ABE0000822D2 /* NANetwork.xcodeproj */;
 				},
 				{
+					ProductGroup = FF8BC25D2B15FD0D000822D2 /* Products */;
+					ProjectRef = FF8BC25C2B15FD0D000822D2 /* NAProfile.xcodeproj */;
+				},
+				{
 					ProductGroup = FF8BC1B02B10ADFD000822D2 /* Products */;
 					ProjectRef = FF8BC1AF2B10ADFD000822D2 /* NASources.xcodeproj */;
 				},
@@ -426,6 +451,13 @@
 			fileType = wrapper.framework;
 			path = NAHeadlines.framework;
 			remoteRef = FF8BC22A2B10E5D1000822D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF8BC2612B15FD0E000822D2 /* NAProfile.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NAProfile.framework;
+			remoteRef = FF8BC2602B15FD0E000822D2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

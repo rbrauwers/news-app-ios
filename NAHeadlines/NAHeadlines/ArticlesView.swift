@@ -16,6 +16,7 @@ public struct ArticlesView : View {
     public var body: some View {
         if #available(iOS 14, *) {
             ArticlesViewContent()
+                .environmentObject(ArticlesViewModel())
         } else {
             ArticlesViewLegacyContent()
         }
@@ -26,36 +27,50 @@ public struct ArticlesView : View {
 @available(iOS 14, *)
 struct ArticlesViewContent : View {
     @StateObject var repository = ArticlesRepository.shared
+    @EnvironmentObject private var appState: AppState
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
-        VStack(alignment: .center) {
-            if let error = repository.error {
-                Text(error.localizedDescription)
-                    .padding(10)
-                    .frame(maxWidth: .infinity, minHeight: 40)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-            }
-            
-            /*
-            NavigationLink(destination: InfoView()) {
-                if #available(iOS 16, *) {
-                    // Without this toolbar stuff the tab doesn't obey correct insets
-                    // Maybe this solution works
-                    // https://stackoverflow.com/questions/69165132/swift-ui-clicking-navigation-bar-link-hides-status-bar-on-back
-                    Text("Click me").toolbar(.hidden, for: .bottomBar)
+        ZStack {
+            VStack(alignment: .center) {
+                if let error = repository.error {
+                    Text(error.localizedDescription)
+                        .padding(10)
+                        .frame(maxWidth: .infinity, minHeight: 40)
+                        .background(Color.red)
+                        .foregroundColor(.white)
                 }
+                
+                Text("Hello, \(appState.user.name)")
+                
+                /*
+                NavigationLink(destination: InfoView()) {
+                    if #available(iOS 16, *) {
+                        // Without this toolbar stuff the tab doesn't obey correct insets
+                        // Maybe this solution works
+                        // https://stackoverflow.com/questions/69165132/swift-ui-clicking-navigation-bar-link-hides-status-bar-on-back
+                        Text("Click me").toolbar(.hidden, for: .bottomBar)
+                    }
+                }
+                .buttonStyle(.plain)
+                 */
+                
+                if repository.isLoading {
+                    ProgressView()
+                }
+                
+                ArticlesList(
+                    articles: repository.articles.compactMap {
+                        ArticleUI(article: $0)
+                    }
+                )
             }
-            .buttonStyle(.plain)
-             */
             
-            if repository.isLoading {
-                ProgressView()
-            }
-            
-            ArticlesList(articles: repository.articles.compactMap {
-                ArticleUI(article: $0)
-            })
+            Image(systemName: "heart")
+                .resizable()
+                .frame(width: 200, height: 200, alignment: .center)
+                .opacity(viewModel.liking ? 1.0 : 0.0)
+                .animation(.easeInOut, value: viewModel.liking)
         }
     }
     
@@ -69,9 +84,10 @@ struct ArticlesViewLegacyContent : View {
     
 }
 
-struct ArticlesList : View {
+private struct ArticlesList : View {
     
     let articles: [ArticleUI]
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         List(articles) {
@@ -94,9 +110,10 @@ private extension View {
     
 }
 
-struct ArticleItem : View {
+private struct ArticleItem : View {
     
     let article: ArticleUI
+    @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         HStack(alignment: .center) {
@@ -136,8 +153,14 @@ struct ArticleItem : View {
                 Spacer()
                 
                 if #available(iOS 16.0, *) {
-                    Image(systemName: "heart")
-                        .tint(Color.accentColor)
+                    Button {
+                        viewModel.like(article: article)
+                    } label: {
+                        Image(systemName: viewModel.isLiked(article: article) ? "heart.fill" : "heart")
+                    }
+                    .tint(Color.accentColor)
+                    .buttonStyle(ScaleButtonStyle())
+                    
                 } else {
                     Image(systemName: "heart")
                 }
@@ -158,6 +181,13 @@ struct InfoView : View {
         Text("Info screen")
     }
     
+}
+
+private struct ScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 2 : 1)
+    }
 }
 
 
@@ -185,4 +215,32 @@ struct InfoView : View {
         )
     
     return ArticlesList(articles: [article, article2])
+        .environmentObject(ArticlesViewModel())
+}
+
+@MainActor
+private class ArticlesViewModel : ObservableObject {
+    @Published var liking: Bool = false
+    @Published var likedArticles = [ArticleUI]()
+    private var likingTask: Task<(),Error>? = nil
+    
+    func like(article: ArticleUI) {
+        if isLiked(article: article) {
+            likedArticles.removeAll(where: { $0 == article })
+        } else {
+            likedArticles.append(article)
+        }
+        
+        likingTask?.cancel()
+        liking = true
+        
+        likingTask = Task {
+            try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+            liking = false
+        }
+    }
+    
+    func isLiked(article: ArticleUI) -> Bool {
+        return likedArticles.contains(where: { $0 == article })
+    }
 }
