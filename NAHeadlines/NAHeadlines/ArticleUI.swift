@@ -8,7 +8,7 @@
 import Foundation
 import NAModels
 
-struct ArticleUI : Identifiable {
+struct ArticleUI : Identifiable, Equatable {
     
     let id: Int
     let author: String

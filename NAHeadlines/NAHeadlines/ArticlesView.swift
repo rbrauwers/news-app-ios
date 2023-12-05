@@ -154,9 +154,9 @@ private struct ArticleItem : View {
                 
                 if #available(iOS 16.0, *) {
                     Button {
-                        viewModel.like()
+                        viewModel.like(article: article)
                     } label: {
-                        Image(systemName: "heart")
+                        Image(systemName: viewModel.isLiked(article: article) ? "heart.fill" : "heart")
                     }
                     .tint(Color.accentColor)
                     .buttonStyle(ScaleButtonStyle())
@@ -221,9 +221,16 @@ private struct ScaleButtonStyle: ButtonStyle {
 @MainActor
 private class ArticlesViewModel : ObservableObject {
     @Published var liking: Bool = false
+    @Published var likedArticles = [ArticleUI]()
     private var likingTask: Task<(),Error>? = nil
     
-    func like() {
+    func like(article: ArticleUI) {
+        if isLiked(article: article) {
+            likedArticles.removeAll(where: { $0 == article })
+        } else {
+            likedArticles.append(article)
+        }
+        
         likingTask?.cancel()
         liking = true
         
@@ -231,5 +238,9 @@ private class ArticlesViewModel : ObservableObject {
             try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
             liking = false
         }
+    }
+    
+    func isLiked(article: ArticleUI) -> Bool {
+        return likedArticles.contains(where: { $0 == article })
     }
 }

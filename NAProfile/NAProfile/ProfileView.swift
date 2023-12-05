@@ -41,9 +41,13 @@ struct ProfileViewContent : View {
 
                     TextField("Username", text: $draftUser.name)
                     
+                    Spacer()
+                    
                     Button("Info", systemImage: "info.circle") {
                         infoViewIsActive.toggle()
-                    }.sheet(isPresented: $infoViewIsActive) {
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .sheet(isPresented: $infoViewIsActive) {
                         InfoView(infoViewIsActive: $infoViewIsActive)
                     }
                 }
@@ -68,7 +72,7 @@ struct ProfileViewContent : View {
 struct ProfileViewLegacyContent : View {
     
     var body: some View {
-        Text("ProfileViewContentLegacy")
+        Text("ProfileViewLegacyContent")
     }
     
 }
