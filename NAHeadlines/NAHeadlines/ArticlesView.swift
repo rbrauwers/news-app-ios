@@ -9,14 +9,21 @@ import Foundation
 import SwiftUI
 import NAData
 import NAModels
+import NANetwork
 
 public struct ArticlesView : View {
-    public init() {}
+    @EnvironmentObject private var articlesRepository: ArticlesRepository
+    
+    public init() {
+        
+    }
     
     public var body: some View {
         if #available(iOS 14, *) {
             ArticlesViewContent()
-                .environmentObject(ArticlesViewModel())
+                .environmentObject(
+                    ArticlesViewModel(repository: articlesRepository)
+                )
         } else {
             ArticlesViewLegacyContent()
         }
@@ -26,14 +33,13 @@ public struct ArticlesView : View {
 
 @available(iOS 14, *)
 struct ArticlesViewContent : View {
-    @StateObject var repository = ArticlesRepository.shared
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
-                if let error = repository.error {
+                if let error = viewModel.repository.error {
                     Text(error.localizedDescription)
                         .padding(10)
                         .frame(maxWidth: .infinity, minHeight: 40)
@@ -55,12 +61,12 @@ struct ArticlesViewContent : View {
                 .buttonStyle(.plain)
                  */
                 
-                if repository.isLoading {
+                if viewModel.repository.isLoading {
                     ProgressView()
                 }
                 
                 ArticlesList(
-                    articles: repository.articles.compactMap {
+                    articles: viewModel.repository.articles.compactMap {
                         ArticleUI(article: $0)
                     }
                 )
@@ -215,7 +221,7 @@ private struct ScaleButtonStyle: ButtonStyle {
         )
     
     return ArticlesList(articles: [article, article2])
-        .environmentObject(ArticlesViewModel())
+        .environmentObject(ArticlesViewModel(repository: ArticlesRepository(networkDataSource: DefaultNetworkDataSource())))
 }
 
 @MainActor
@@ -223,6 +229,13 @@ private class ArticlesViewModel : ObservableObject {
     @Published var liking: Bool = false
     @Published var likedArticles = [ArticleUI]()
     private var likingTask: Task<(),Error>? = nil
+    
+    // TODO: should be private
+    public let repository: ArticlesRepository
+        
+    init(repository: ArticlesRepository) {
+        self.repository = repository
+    }
     
     func like(article: ArticleUI) {
         if isLiked(article: article) {

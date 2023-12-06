@@ -12,14 +12,16 @@ import NANetwork
 
 @MainActor
 public final class ArticlesRepository: ObservableObject {
+
+    private let networkDataSource: NetworkDataSource
     
-    public static let shared = ArticlesRepository()
+    public init(networkDataSource: NetworkDataSource) {
+        self.networkDataSource = networkDataSource
+    }
     
     @Published public var isLoading: Bool = false
     @Published public var error: Error?
     @Published public var articles: [Article] = []
-    
-    private let networkDataSource = NetworkDataSource()
     
     public func load() async {
         error = nil
@@ -27,6 +29,7 @@ public final class ArticlesRepository: ObservableObject {
         
         do {
             let items = try await networkDataSource.getArticles()
+            // Articles can have the same (artificial) ID, so we filter out duplications
             articles = Array(Set(items))
         }
         catch {

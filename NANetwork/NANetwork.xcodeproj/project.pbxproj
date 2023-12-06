@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF55F0472B20B5F300E16F6C /* NANetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F0462B20B5F300E16F6C /* NANetworkTests.swift */; };
+		FF55F0482B20B5F300E16F6C /* NANetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC17F2B10ABE0000822D2 /* NANetwork.framework */; };
+		FF55F04F2B20B61700E16F6C /* NetworkDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F04E2B20B61700E16F6C /* NetworkDataSourceTests.swift */; };
 		FF8BC1842B10ABE0000822D2 /* NANetwork.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1832B10ABE0000822D2 /* NANetwork.docc */; };
 		FF8BC1852B10ABE0000822D2 /* NANetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC1822B10ABE0000822D2 /* NANetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8BC1922B10AC3F000822D2 /* NANetwork+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1912B10AC3F000822D2 /* NANetwork+URLSession.swift */; };
@@ -15,6 +18,16 @@
 		FF8BC1DE2B10B3DB000822D2 /* NAModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1DC2B10B3DB000822D2 /* NAModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC23F2B14B60B000822D2 /* NANetwork+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC23E2B14B60B000822D2 /* NANetwork+Bundle.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF55F0492B20B5F300E16F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8BC1762B10ABE0000822D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF8BC17E2B10ABE0000822D2;
+			remoteInfo = NANetwork;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FF8BC1DF2B10B3DB000822D2 /* Embed Frameworks */ = {
@@ -31,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF55F0442B20B5F300E16F6C /* NANetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NANetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF55F0462B20B5F300E16F6C /* NANetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NANetworkTests.swift; sourceTree = "<group>"; };
+		FF55F04E2B20B61700E16F6C /* NetworkDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSourceTests.swift; sourceTree = "<group>"; };
 		FF8BC17F2B10ABE0000822D2 /* NANetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NANetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC1822B10ABE0000822D2 /* NANetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NANetwork.h; sourceTree = "<group>"; };
 		FF8BC1832B10ABE0000822D2 /* NANetwork.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NANetwork.docc; sourceTree = "<group>"; };
@@ -42,6 +58,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FF55F0412B20B5F300E16F6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF55F0482B20B5F300E16F6C /* NANetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC17C2B10ABE0000822D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,10 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF55F0452B20B5F300E16F6C /* NANetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF55F0462B20B5F300E16F6C /* NANetworkTests.swift */,
+				FF55F04E2B20B61700E16F6C /* NetworkDataSourceTests.swift */,
+			);
+			path = NANetworkTests;
+			sourceTree = "<group>";
+		};
 		FF8BC1752B10ABE0000822D2 = {
 			isa = PBXGroup;
 			children = (
 				FF8BC1812B10ABE0000822D2 /* NANetwork */,
+				FF55F0452B20B5F300E16F6C /* NANetworkTests */,
 				FF8BC1802B10ABE0000822D2 /* Products */,
 				FF8BC1DB2B10B3DB000822D2 /* Frameworks */,
 			);
@@ -66,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8BC17F2B10ABE0000822D2 /* NANetwork.framework */,
+				FF55F0442B20B5F300E16F6C /* NANetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,6 +140,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		FF55F0432B20B5F300E16F6C /* NANetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF55F04D2B20B5F300E16F6C /* Build configuration list for PBXNativeTarget "NANetworkTests" */;
+			buildPhases = (
+				FF55F0402B20B5F300E16F6C /* Sources */,
+				FF55F0412B20B5F300E16F6C /* Frameworks */,
+				FF55F0422B20B5F300E16F6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF55F04A2B20B5F300E16F6C /* PBXTargetDependency */,
+			);
+			name = NANetworkTests;
+			productName = NANetworkTests;
+			productReference = FF55F0442B20B5F300E16F6C /* NANetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FF8BC17E2B10ABE0000822D2 /* NANetwork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF8BC1882B10ABE0000822D2 /* Build configuration list for PBXNativeTarget "NANetwork" */;
@@ -131,8 +184,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					FF55F0432B20B5F300E16F6C = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					FF8BC17E2B10ABE0000822D2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -152,11 +209,19 @@
 			projectRoot = "";
 			targets = (
 				FF8BC17E2B10ABE0000822D2 /* NANetwork */,
+				FF55F0432B20B5F300E16F6C /* NANetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FF55F0422B20B5F300E16F6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC17D2B10ABE0000822D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,6 +232,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FF55F0402B20B5F300E16F6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF55F0472B20B5F300E16F6C /* NANetworkTests.swift in Sources */,
+				FF55F04F2B20B61700E16F6C /* NetworkDataSourceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC17B2B10ABE0000822D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,7 +254,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FF55F04A2B20B5F300E16F6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF8BC17E2B10ABE0000822D2 /* NANetwork */;
+			targetProxy = FF55F0492B20B5F300E16F6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FF55F04B2B20B5F300E16F6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LM25D373KF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NANetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF55F04C2B20B5F300E16F6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LM25D373KF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NANetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FF8BC1862B10ABE0000822D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -375,6 +489,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FF55F04D2B20B5F300E16F6C /* Build configuration list for PBXNativeTarget "NANetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF55F04B2B20B5F300E16F6C /* Debug */,
+				FF55F04C2B20B5F300E16F6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FF8BC1792B10ABE0000822D2 /* Build configuration list for PBXProject "NANetwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

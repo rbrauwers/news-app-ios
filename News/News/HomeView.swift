@@ -30,7 +30,7 @@ struct HomeView: View {
 struct TabViewIOS14: View {
     @State private var selectedTab = SelectedTab.headlines
     @State private var title = SelectedTab.headlines.rawValue.capitalized
-    
+            
     var body: some View {
         TabView(selection: $selectedTab) {
             ArticlesView()
@@ -57,7 +57,7 @@ struct TabViewIOS14: View {
         }
         .onChange(of: selectedTab, perform: { value in
             title = selectedTab.rawValue.capitalized
-        })        
+        })
     }
     
 }

@@ -9,5 +9,5 @@ import Foundation
 
 
 extension Bundle {
-    static let naNetwork = Bundle(for: NetworkDataSource.self)
+    static let naNetwork = Bundle(for: DefaultNetworkDataSource.self)
 }
