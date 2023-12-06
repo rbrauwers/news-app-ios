@@ -19,7 +19,7 @@ public final class SourcesRepository: ObservableObject {
     @Published public var error: Error?
     @Published public var sources: [Source] = []
     
-    private let networkDataSource = NetworkDataSource()
+    private let networkDataSource = DefaultNetworkDataSource()
     
     public func load() async {
         error = nil

@@ -28,6 +28,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FF55F0622B20D57000E16F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8BC1F62B10B91B000822D2 /* NAData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF55F0542B20BAD100E16F6C;
+			remoteInfo = NADataTests;
+		};
+		FF55F0652B20D57000E16F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8BC18B2B10ABE0000822D2 /* NANetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF55F0442B20B5F300E16F6C;
+			remoteInfo = NANetworkTests;
+		};
 		FF8BC18F2B10ABE1000822D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FF8BC18B2B10ABE0000822D2 /* NANetwork.xcodeproj */;
@@ -105,6 +119,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF55F0392B1F9CC800E16F6C /* News.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = News.xctestplan; sourceTree = "<group>"; };
+		FF55F0602B20D57000E16F6C /* NADataTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NADataTests.xctestplan; sourceTree = "<group>"; };
 		FF8BC1722B10A997000822D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF8BC18B2B10ABE0000822D2 /* NANetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NANetwork.xcodeproj; path = ../../NANetwork/NANetwork.xcodeproj; sourceTree = "<group>"; };
 		FF8BC1AF2B10ADFD000822D2 /* NASources.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NASources.xcodeproj; path = ../../NASources/NASources.xcodeproj; sourceTree = "<group>"; };
@@ -169,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8BC1902B10ABE1000822D2 /* NANetwork.framework */,
+				FF55F0662B20D57000E16F6C /* NANetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8BC1FB2B10B91B000822D2 /* NAData.framework */,
+				FF55F0632B20D57000E16F6C /* NADataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +251,8 @@
 		FFDC7A5B2B10A55700FC8F71 = {
 			isa = PBXGroup;
 			children = (
+				FF55F0602B20D57000E16F6C /* NADataTests.xctestplan */,
+				FF55F0392B1F9CC800E16F6C /* News.xctestplan */,
 				FF8BC1982B10ADC3000822D2 /* Features */,
 				FF8BC1732B10AB6B000822D2 /* Core */,
 				FFDC7A662B10A55700FC8F71 /* News */,
@@ -418,6 +438,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		FF55F0632B20D57000E16F6C /* NADataTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NADataTests.xctest;
+			remoteRef = FF55F0622B20D57000E16F6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FF55F0662B20D57000E16F6C /* NANetworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NANetworkTests.xctest;
+			remoteRef = FF55F0652B20D57000E16F6C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FF8BC1902B10ABE1000822D2 /* NANetwork.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

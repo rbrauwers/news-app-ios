@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "48181F4C-075A-4697-9EEF-A95DB5EFC860",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:NAData.xcodeproj",
+        "identifier" : "FF55F0532B20BAD100E16F6C",
+        "name" : "NADataTests"
+      }
+    }
+  ],
+  "version" : 1
+}

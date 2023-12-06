@@ -8,7 +8,13 @@
 import Foundation
 import NAModels
 
-public class NetworkDataSource {
+public protocol NetworkDataSource {
+    func getSources() async throws -> [Source]
+    func getArticles() async throws -> [Article]
+}
+
+// TODO: should be private after dependency injection
+public class DefaultNetworkDataSource : NetworkDataSource {
 
     private let baseUrl = "https://newsapi.org/"
     

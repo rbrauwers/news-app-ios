@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "D9CB539D-E1E9-4C49-AC5C-AA3D71E66A65",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:News.xcodeproj",
+      "identifier" : "FFDC7A632B10A55700FC8F71",
+      "name" : "News"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:News.xcodeproj",
+        "identifier" : "FFDC7A732B10A55800FC8F71",
+        "name" : "NewsTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:News.xcodeproj",
+        "identifier" : "FFDC7A7D2B10A55800FC8F71",
+        "name" : "NewsUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

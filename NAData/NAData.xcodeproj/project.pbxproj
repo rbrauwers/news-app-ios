@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF55F0572B20BAD100E16F6C /* NADataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F0562B20BAD100E16F6C /* NADataTests.swift */; };
+		FF55F0582B20BAD100E16F6C /* NAData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1EA2B10B91B000822D2 /* NAData.framework */; };
+		FF55F05F2B20BAF800E16F6C /* ArticlesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F05E2B20BAF800E16F6C /* ArticlesRepositoryTests.swift */; };
 		FF8BC1EF2B10B91B000822D2 /* NAData.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC1EE2B10B91B000822D2 /* NAData.docc */; };
 		FF8BC1F02B10B91B000822D2 /* NAData.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC1ED2B10B91B000822D2 /* NAData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8BC1FE2B10B936000822D2 /* NAModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1FD2B10B936000822D2 /* NAModels.framework */; };
@@ -16,6 +19,16 @@
 		FF8BC2052B10B949000822D2 /* SourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2042B10B949000822D2 /* SourcesRepository.swift */; };
 		FF8BC2312B10EB09000822D2 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2302B10EB09000822D2 /* ArticlesRepository.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF55F0592B20BAD100E16F6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF8BC1E12B10B91B000822D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF8BC1E92B10B91B000822D2;
+			remoteInfo = NAData;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FF8BC2002B10B936000822D2 /* Embed Frameworks */ = {
@@ -33,6 +46,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF55F0542B20BAD100E16F6C /* NADataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NADataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF55F0562B20BAD100E16F6C /* NADataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NADataTests.swift; sourceTree = "<group>"; };
+		FF55F05E2B20BAF800E16F6C /* ArticlesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepositoryTests.swift; sourceTree = "<group>"; };
 		FF8BC1EA2B10B91B000822D2 /* NAData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NAData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC1ED2B10B91B000822D2 /* NAData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAData.h; sourceTree = "<group>"; };
 		FF8BC1EE2B10B91B000822D2 /* NAData.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NAData.docc; sourceTree = "<group>"; };
@@ -43,6 +59,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FF55F0512B20BAD100E16F6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF55F0582B20BAD100E16F6C /* NAData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC1E72B10B91B000822D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,10 +79,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF55F0552B20BAD100E16F6C /* NADataTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF55F0562B20BAD100E16F6C /* NADataTests.swift */,
+				FF55F05E2B20BAF800E16F6C /* ArticlesRepositoryTests.swift */,
+			);
+			path = NADataTests;
+			sourceTree = "<group>";
+		};
 		FF8BC1E02B10B91B000822D2 = {
 			isa = PBXGroup;
 			children = (
 				FF8BC1EC2B10B91B000822D2 /* NAData */,
+				FF55F0552B20BAD100E16F6C /* NADataTests */,
 				FF8BC1EB2B10B91B000822D2 /* Products */,
 				FF8BC1FC2B10B936000822D2 /* Frameworks */,
 			);
@@ -68,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8BC1EA2B10B91B000822D2 /* NAData.framework */,
+				FF55F0542B20BAD100E16F6C /* NADataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +141,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		FF55F0532B20BAD100E16F6C /* NADataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF55F05D2B20BAD100E16F6C /* Build configuration list for PBXNativeTarget "NADataTests" */;
+			buildPhases = (
+				FF55F0502B20BAD100E16F6C /* Sources */,
+				FF55F0512B20BAD100E16F6C /* Frameworks */,
+				FF55F0522B20BAD100E16F6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF55F05A2B20BAD100E16F6C /* PBXTargetDependency */,
+			);
+			name = NADataTests;
+			productName = NADataTests;
+			productReference = FF55F0542B20BAD100E16F6C /* NADataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FF8BC1E92B10B91B000822D2 /* NAData */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF8BC1F32B10B91B000822D2 /* Build configuration list for PBXNativeTarget "NAData" */;
@@ -132,8 +185,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					FF55F0532B20BAD100E16F6C = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					FF8BC1E92B10B91B000822D2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -153,11 +210,19 @@
 			projectRoot = "";
 			targets = (
 				FF8BC1E92B10B91B000822D2 /* NAData */,
+				FF55F0532B20BAD100E16F6C /* NADataTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FF55F0522B20BAD100E16F6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC1E82B10B91B000822D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,6 +233,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FF55F0502B20BAD100E16F6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF55F05F2B20BAF800E16F6C /* ArticlesRepositoryTests.swift in Sources */,
+				FF55F0572B20BAD100E16F6C /* NADataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FF8BC1E62B10B91B000822D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -180,7 +254,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		FF55F05A2B20BAD100E16F6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF8BC1E92B10B91B000822D2 /* NAData */;
+			targetProxy = FF55F0592B20BAD100E16F6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		FF55F05B2B20BAD100E16F6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LM25D373KF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NADataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF55F05C2B20BAD100E16F6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LM25D373KF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rbrauwers.NADataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FF8BC1F12B10B91B000822D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -373,6 +487,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FF55F05D2B20BAD100E16F6C /* Build configuration list for PBXNativeTarget "NADataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF55F05B2B20BAD100E16F6C /* Debug */,
+				FF55F05C2B20BAD100E16F6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FF8BC1E42B10B91B000822D2 /* Build configuration list for PBXProject "NAData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
