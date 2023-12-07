@@ -47,7 +47,10 @@ struct ArticlesViewContent : View {
                         .foregroundColor(.white)
                 }
                 
+                Text("Someone")
+                
                 Text("Hello, \(appState.user.name)")
+                    .accessibilityIdentifier("username")
                 
                 /*
                 NavigationLink(destination: InfoView()) {
@@ -90,6 +93,7 @@ struct ArticlesViewLegacyContent : View {
     
 }
 
+@available(iOS 14, *)
 private struct ArticlesList : View {
     
     let articles: [ArticleUI]
@@ -100,6 +104,7 @@ private struct ArticlesList : View {
             ArticleItem(article: $0)
         }
         .listStyle(.plain)
+        .accessibilityIdentifier("articlesList")
     }
     
 }
@@ -162,10 +167,14 @@ private struct ArticleItem : View {
                     Button {
                         viewModel.like(article: article)
                     } label: {
-                        Image(systemName: viewModel.isLiked(article: article) ? "heart.fill" : "heart")
+                        let isLiked = viewModel.isLiked(article: article)
+                        
+                        Image(systemName: isLiked ? "heart.fill" : "heart")
+                            .accessibilityLabel(isLiked ? "liked" : "notLiked")
                     }
                     .tint(Color.accentColor)
                     .buttonStyle(ScaleButtonStyle())
+                    .accessibilityIdentifier("likeButton")
                     
                 } else {
                     Image(systemName: "heart")
@@ -196,7 +205,7 @@ private struct ScaleButtonStyle: ButtonStyle {
     }
 }
 
-
+@available(iOS 14, *)
 #Preview("Articles list2") {
     let article = ArticleUI(
         article: Article(

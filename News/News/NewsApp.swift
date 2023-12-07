@@ -10,6 +10,7 @@ import NAData
 import NAModels
 import NANetwork
 import NAProfile
+import TestUtils
 
 @main
 struct WeatherProAppWrapper {
@@ -34,9 +35,20 @@ struct WeatherProAppWrapper {
 struct NewsApp: App {
     
     @StateObject private var appState = AppState(user: User(name: "Rodrigo"))
-    private let articlesRepository = ArticlesRepository(networkDataSource: DefaultNetworkDataSource())
+    
+    private var articlesRepository: ArticlesRepository {
+        get {
+            if CommandLine.arguments.contains("-UITesting") {
+                stableArticlesRepository
+            } else {
+                ArticlesRepository(networkDataSource: DefaultNetworkDataSource())
+            }
+        }
+    }
     
     init() {
+        let uiTesting = CommandLine.arguments.contains("-UITesting")
+        debugPrint("uiTesting: \(uiTesting)")
         load()
     }
     

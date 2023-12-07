@@ -17,14 +17,10 @@ public struct Article : Decodable, Identifiable, Hashable {
     public let urlToImage: String?
     public let publishedAt: String?
     public let content: String?
-    
-    public var id: Int {
-        get {
-            "\(author.orEmpty())\(title.orEmpty())\(description.orEmpty())\(url.orEmpty())\(urlToImage.orEmpty())\(publishedAt.orEmpty())\(content.orEmpty())".hashValue
-        }
-    }
+    public var id: String
     
     public init(author: String?, title: String?, description: String?, url: String?, urlToImage: String?, publishedAt: String?, content: String?) {
+        id = UUID().uuidString
         self.author = author
         self.title = title
         self.description = description
