@@ -11,6 +11,7 @@ import NAModels
 import NANetwork
 import NAProfile
 import TestUtils
+import Swinject
 
 @main
 struct WeatherProAppWrapper {
@@ -35,27 +36,25 @@ struct WeatherProAppWrapper {
 struct NewsApp: App {
     
     @StateObject private var appState = AppState(user: User(name: "Rodrigo"))
-    
-    private var articlesRepository: ArticlesRepository {
-        get {
-            if CommandLine.arguments.contains("-UITesting") {
-                stableArticlesRepository
-            } else {
-                ArticlesRepository(networkDataSource: DefaultNetworkDataSource())
-            }
-        }
-    }
+    private let uiTesting: Bool
     
     init() {
-        let uiTesting = CommandLine.arguments.contains("-UITesting")
+        uiTesting = CommandLine.arguments.contains("-UITesting")
         debugPrint("uiTesting: \(uiTesting)")
+        buildContainer()
         load()
+    }
+    
+    private func buildContainer() {
+        globalContainer
+            .registerNetworkDependencies(uiTesting: uiTesting)
+            .registerDataDependencies()
     }
     
     private func load() {
         Task {
-            await SourcesRepository.shared.load()
-            await articlesRepository.load()
+            await globalContainer.resolve(ArticlesRepository.self)?.load()
+            await globalContainer.resolve(SourcesRepository.self)?.load()
         }
     }
         
@@ -63,7 +62,8 @@ struct NewsApp: App {
         WindowGroup {
             HomeView()
                 .environmentObject(appState)
-                .environmentObject(articlesRepository)
+                .environmentObject(globalContainer.resolve(ArticlesRepository.self)!)
+                .environmentObject(globalContainer.resolve(SourcesRepository.self)!)
         }
     }
 }

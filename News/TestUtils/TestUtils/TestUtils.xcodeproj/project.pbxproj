@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		FF2537522B21CD9A00A3A2C8 /* TestUtils.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF2537512B21CD9A00A3A2C8 /* TestUtils.docc */; };
 		FF2537532B21CD9A00A3A2C8 /* TestUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2537502B21CD9A00A3A2C8 /* TestUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2537602B21CDCB00A3A2C8 /* NetworkDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF25375F2B21CDCB00A3A2C8 /* NetworkDataSourceMock.swift */; };
 		FF2537632B21CDD600A3A2C8 /* NAData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2537622B21CDD600A3A2C8 /* NAData.framework */; };
 		FF2537642B21CDD600A3A2C8 /* NAData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF2537622B21CDD600A3A2C8 /* NAData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF2537672B21CDDE00A3A2C8 /* NAModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2537662B21CDDE00A3A2C8 /* NAModels.framework */; };
@@ -39,7 +38,6 @@
 		FF25374D2B21CD9A00A3A2C8 /* TestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2537502B21CD9A00A3A2C8 /* TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUtils.h; sourceTree = "<group>"; };
 		FF2537512B21CD9A00A3A2C8 /* TestUtils.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = TestUtils.docc; sourceTree = "<group>"; };
-		FF25375F2B21CDCB00A3A2C8 /* NetworkDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSourceMock.swift; sourceTree = "<group>"; };
 		FF2537622B21CDD600A3A2C8 /* NAData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2537662B21CDDE00A3A2C8 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2537692B21CDE200A3A2C8 /* NANetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NANetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +80,6 @@
 			children = (
 				FF2537502B21CD9A00A3A2C8 /* TestUtils.h */,
 				FF2537512B21CD9A00A3A2C8 /* TestUtils.docc */,
-				FF25375F2B21CDCB00A3A2C8 /* NetworkDataSourceMock.swift */,
 				FF25376C2B21CF1C00A3A2C8 /* ArticlesRepositoryMock.swift */,
 			);
 			path = TestUtils;
@@ -180,7 +177,6 @@
 			files = (
 				FF25376D2B21CF1C00A3A2C8 /* ArticlesRepositoryMock.swift in Sources */,
 				FF2537522B21CD9A00A3A2C8 /* TestUtils.docc in Sources */,
-				FF2537602B21CDCB00A3A2C8 /* NetworkDataSourceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,15 +1,12 @@
 //
 //  NetworkDataSourceMock.swift
-//  TestUtils
+//  NANetwork
 //
 //  Created by Rodrigo Brauwers on 07/12/23.
 //
 
-import Combine
 import Foundation
-import NAData
 import NAModels
-import NANetwork
 
 public class NetworkDataSourceMock : NetworkDataSource {
     
@@ -23,8 +20,8 @@ public class NetworkDataSourceMock : NetworkDataSource {
         Article(author: "John", title: "Article2", description: "", url: "", urlToImage: "", publishedAt: "", content: "")
     ]
     
-    static let stableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: false)
-    static let unstableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: true)
+    public static let stableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: false)
+    public static let unstableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: true)
     
     let sources: [Source]
     let articles: [Article]

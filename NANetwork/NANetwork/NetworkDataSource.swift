@@ -13,8 +13,7 @@ public protocol NetworkDataSource {
     func getArticles() async throws -> [Article]
 }
 
-// TODO: should be private after dependency injection
-public class DefaultNetworkDataSource : NetworkDataSource {
+class DefaultNetworkDataSource : NetworkDataSource {
 
     private let baseUrl = "https://newsapi.org/"
     

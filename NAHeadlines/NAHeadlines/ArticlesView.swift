@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Swinject
 import NAData
 import NAModels
 import NANetwork
@@ -228,13 +229,17 @@ private struct ScaleButtonStyle: ButtonStyle {
             publishedAt: "2023-10-05T04:14:00Z",
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17")
         )
+
+    let container = Container()
+        .registerNetworkDependencies(uiTesting: true)
+        .registerDataDependencies()
     
     return ArticlesList(articles: [article, article2])
-        .environmentObject(ArticlesViewModel(repository: ArticlesRepository(networkDataSource: DefaultNetworkDataSource())))
+        .environmentObject(ArticlesViewModel(repository: container.resolve(ArticlesRepository.self)!))
 }
 
 @MainActor
-private class ArticlesViewModel : ObservableObject {
+class ArticlesViewModel : ObservableObject {
     @Published var liking: Bool = false
     @Published var likedArticles = [ArticleUI]()
     private var likingTask: Task<(),Error>? = nil

@@ -22,6 +22,8 @@
 		FF8BC2352B10EE06000822D2 /* NAHeadlines.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC22B2B10E5D1000822D2 /* NAHeadlines.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; };
 		FF8BC26A2B16002F000822D2 /* NAProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFBEAE962B2213170014229F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAE952B2213170014229F /* Swinject */; };
+		FFBEAE982B2213170014229F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAE972B2213170014229F /* Swinject-Dynamic */; };
 		FFDC7A682B10A55700FC8F71 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A672B10A55700FC8F71 /* NewsApp.swift */; };
 		FFDC7A6A2B10A55700FC8F71 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A692B10A55700FC8F71 /* HomeView.swift */; };
 		FFDC7A6C2B10A55800FC8F71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDC7A6B2B10A55800FC8F71 /* Assets.xcassets */; };
@@ -173,7 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF25377D2B21DE3000A3A2C8 /* TestUtils.framework in Frameworks */,
+				FFBEAE982B2213170014229F /* Swinject-Dynamic in Frameworks */,
 				FF8BC20E2B10C0C0000822D2 /* NAData.framework in Frameworks */,
+				FFBEAE962B2213170014229F /* Swinject in Frameworks */,
 				FF8BC2342B10EE06000822D2 /* NAHeadlines.framework in Frameworks */,
 				FF8BC1B72B10AF4C000822D2 /* NASources.framework in Frameworks */,
 				FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */,
@@ -374,6 +378,10 @@
 			dependencies = (
 			);
 			name = News;
+			packageProductDependencies = (
+				FFBEAE952B2213170014229F /* Swinject */,
+				FFBEAE972B2213170014229F /* Swinject-Dynamic */,
+			);
 			productName = News;
 			productReference = FFDC7A642B10A55700FC8F71 /* News.app */;
 			productType = "com.apple.product-type.application";
@@ -447,6 +455,9 @@
 				Base,
 			);
 			mainGroup = FFDC7A5B2B10A55700FC8F71;
+			packageReferences = (
+				FFBEAE942B2213170014229F /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = FFDC7A652B10A55700FC8F71 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -922,6 +933,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FFBEAE942B2213170014229F /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FFBEAE952B2213170014229F /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBEAE942B2213170014229F /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		FFBEAE972B2213170014229F /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFBEAE942B2213170014229F /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFDC7A5C2B10A55700FC8F71 /* Project object */;
 }

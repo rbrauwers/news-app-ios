@@ -25,7 +25,7 @@ public struct SourcesView : View {
 
 @available(iOS 14, *)
 struct SourcesViewContent : View {
-    @StateObject var repository = SourcesRepository.shared
+    @EnvironmentObject private var repository: SourcesRepository
     
     var body: some View {
         VStack(alignment: .center) {
