@@ -11,62 +11,13 @@ import XCTest
 @testable import NAData
 @testable import NAModels
 @testable import NANetwork
-
-class NetworkDataSourceMock : NetworkDataSource {
-    let sources: [Source]
-    let articles: [Article]
-    let shouldFail: Bool
-    
-    init(sources: [Source], articles: [Article], shouldFail: Bool) {
-        self.sources = sources
-        self.articles = articles
-        self.shouldFail = shouldFail
-    }
-    
-    func getSources() async throws -> [Source] {
-        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-        if shouldFail {
-            throw URLError(.badServerResponse)
-        } else {
-            return sources
-        }
-    }
-    
-    func getArticles() async throws -> [Article] {
-        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-        if shouldFail {
-            throw URLError(.badServerResponse)
-        } else {
-            return articles
-        }
-    }
-        
-}
+@testable import TestUtils
 
 class ArticlesRepositoryTests : XCTestCase {
     
-    let sources: [Source] = [
-        Source(id: "1", name: "", description: "", url: "", category: "", language: "", country: ""),
-        Source(id: "2", name: "", description: "", url: "", category: "", language: "", country: "")
-    ]
-    
-    let articles: [Article] = [
-        Article(author: "", title: "", description: "", url: "", urlToImage: "", publishedAt: "", content: ""),
-        Article(author: "", title: "", description: "", url: "", urlToImage: "", publishedAt: "", content: "")
-    ]
-    
-    var correctNetworkDataSource: NetworkDataSource!
-    var problematicNetworkDataSource: NetworkDataSource!
-    var correctRepository: ArticlesRepository!
-    var problematicRepository: ArticlesRepository!
     var cancellables = Set<AnyCancellable>()
     
-    @MainActor
     override func setUpWithError() throws {
-        correctNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: false)
-        problematicNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: true)
-        correctRepository = ArticlesRepository(networkDataSource: correctNetworkDataSource)
-        problematicRepository = ArticlesRepository(networkDataSource: problematicNetworkDataSource)
     }
 
     override func tearDownWithError() throws {
@@ -78,7 +29,7 @@ class ArticlesRepositoryTests : XCTestCase {
         let expectation = XCTestExpectation(description: "Data should load after few seconds")
         var count = 0
         
-        correctRepository.$articles
+        stableArticlesRepository.$articles
             .dropFirst()
             .sink { items in
                 count = items.count
@@ -87,11 +38,11 @@ class ArticlesRepositoryTests : XCTestCase {
             .store(in: &cancellables)
         
         Task {
-            await correctRepository.load()
+            await stableArticlesRepository.load()
         }
         
         wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(count, articles.count)
+        XCTAssertEqual(count, NetworkDataSourceMock.articles.count)
     }
     
     @MainActor
@@ -99,7 +50,7 @@ class ArticlesRepositoryTests : XCTestCase {
         let expectation = XCTestExpectation(description: "Data load should fail")
         var error: Error?
         
-        problematicRepository.$error
+        unstableArticlesRepository.$error
             .dropFirst(2)
             .sink { e in
                 error = e
@@ -108,7 +59,7 @@ class ArticlesRepositoryTests : XCTestCase {
             .store(in: &cancellables)
         
         Task {
-            await problematicRepository.load()
+            await unstableArticlesRepository.load()
         }
         
         wait(for: [expectation], timeout: 5)
