@@ -10,17 +10,19 @@ import SwiftUI
 import NAModels
 import NANetwork
 
-@MainActor
 public final class SourcesRepository: ObservableObject {
-    
-    public static let shared = SourcesRepository()
     
     @Published public var isLoading: Bool = false
     @Published public var error: Error?
     @Published public var sources: [Source] = []
     
-    private let networkDataSource = DefaultNetworkDataSource()
+    private let networkDataSource: NetworkDataSource
     
+    public init(networkDataSource: NetworkDataSource) {
+        self.networkDataSource = networkDataSource
+    }
+    
+    @MainActor
     public func load() async {
         error = nil
         isLoading = true
