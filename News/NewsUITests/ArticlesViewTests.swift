@@ -41,8 +41,10 @@ final class ArticlesViewTests: XCTestCase {
         
         XCTAssertTrue(likeButton.label == "liked")
     }
-        
-    func test_dislikedArticleShouldHaveFilledHeart() {
+     
+    /// To debug view herarchy, set a breakpoint with command: *po app*
+    /// https://developer.apple.com/forums/thread/9045
+    func test_dislikedArticleShouldHaveDefaultHeart() {
         let articlesList = app.collectionViews["articlesList"]
         let likeButton = articlesList.cells.firstMatch.buttons["likeButton"]
         XCTAssertTrue(likeButton.waitForExistence(timeout: 10))
