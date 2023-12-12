@@ -216,7 +216,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             url: "",
             urlToImage: "https://images.pexels.com/photos/3373744/pexels-photo-3373744.jpeg",
             publishedAt: "2023-11-26T01:44:52Z",
-            content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17")
+            content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
+            id: 1)
         )
 
     let article2 = ArticleUI(
@@ -227,7 +228,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             url: "",
             urlToImage: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg",
             publishedAt: "2023-10-05T04:14:00Z",
-            content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17")
+            content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
+            id: 2)
         )
 
     let container = Container()

@@ -10,7 +10,7 @@ import NAModels
 
 struct ArticleUI : Identifiable, Equatable {
     
-    let id: String
+    let id: Int
     let author: String
     let content: String
     let publishedAt: String?

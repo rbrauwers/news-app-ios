@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NACommon
 import NAData
 import NAModels
 import NANetwork
@@ -67,3 +68,4 @@ struct NewsApp: App {
         }
     }
 }
+

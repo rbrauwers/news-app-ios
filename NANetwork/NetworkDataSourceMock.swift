@@ -16,8 +16,23 @@ public class NetworkDataSourceMock : NetworkDataSource {
     ]
     
     public static let articles: [Article] = [
-        Article(author: "James", title: "Article1", description: "", url: "", urlToImage: "", publishedAt: "", content: ""),
-        Article(author: "John", title: "Article2", description: "", url: "", urlToImage: "", publishedAt: "", content: "")
+        Article(author: "James", 
+                title: "Article1",
+                description: "",
+                url: "",
+                urlToImage: "",
+                publishedAt: "",
+                content: "",
+                id: 1),
+        
+        Article(author: "John",
+                title: "Article2",
+                description: "",
+                url: "",
+                urlToImage: "",
+                publishedAt: "",
+                content: "",
+                id: 2)
     ]
     
     public static let stableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: false)
