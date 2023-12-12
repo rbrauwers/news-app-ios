@@ -7,17 +7,25 @@
 
 import Foundation
 import Swinject
+import NADatabase
 import NANetwork
 
 public extension Container {
     
     @discardableResult
     func registerDataDependencies() -> Container {
+        registerDatabaseDependencies()
+        
         register(ArticlesRepository.self) { resolver in
             guard let networkDataSource = resolver.resolve(NetworkDataSource.self) else {
                 fatalError("Could not resolve network data source")
             }
-            return ArticlesRepository(networkDataSource: networkDataSource)
+            
+            guard let dao = resolver.resolve(ArticlesDAO.self) else {
+                fatalError("Could not resolve articles DAO")
+            }
+            
+            return ArticlesRepository(networkDataSource: networkDataSource, articlesDAO: dao)
         }
         .inObjectScope(.container)
         

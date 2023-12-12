@@ -7,12 +7,15 @@
 
 import Foundation
 import NAData
+import NADatabase
 import NANetwork
 
 public let stableArticlesRepository = ArticlesRepository(
-    networkDataSource: NetworkDataSourceMock.stableNetworkDataSource
+    networkDataSource: NetworkDataSourceMock.stableNetworkDataSource,
+    articlesDAO: ArticlesDAOMock()
 )
 
 public let unstableArticlesRepository = ArticlesRepository(
-    networkDataSource: NetworkDataSourceMock.unstableNetworkDataSource
+    networkDataSource: NetworkDataSourceMock.unstableNetworkDataSource,
+    articlesDAO: ArticlesDAOMock()
 )

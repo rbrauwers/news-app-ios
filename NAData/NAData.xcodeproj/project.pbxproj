@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FF2537772B21D15F00A3A2C8 /* TestUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2537762B21D15F00A3A2C8 /* TestUtils.framework */; };
 		FF2537782B21D15F00A3A2C8 /* TestUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF2537762B21D15F00A3A2C8 /* TestUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF361A172B286A8100D8FF8D /* NADatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF361A162B286A8100D8FF8D /* NADatabase.framework */; };
+		FF361A182B286A8100D8FF8D /* NADatabase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF361A162B286A8100D8FF8D /* NADatabase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF55F0572B20BAD100E16F6C /* NADataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F0562B20BAD100E16F6C /* NADataTests.swift */; };
 		FF55F0582B20BAD100E16F6C /* NAData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1EA2B10B91B000822D2 /* NAData.framework */; };
 		FF55F05F2B20BAF800E16F6C /* ArticlesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55F05E2B20BAF800E16F6C /* ArticlesRepositoryTests.swift */; };
@@ -22,7 +24,6 @@
 		FF8BC2312B10EB09000822D2 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2302B10EB09000822D2 /* ArticlesRepository.swift */; };
 		FFBEAEA42B22156F0014229F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEA32B22156F0014229F /* Swinject */; };
 		FFBEAEA62B22156F0014229F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEA52B22156F0014229F /* Swinject-Dynamic */; };
-		FFBEAEA82B2227FE0014229F /* GlobalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEA72B2227FE0014229F /* GlobalContainer.swift */; };
 		FFBEAEB12B2229EE0014229F /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEB02B2229EE0014229F /* DataContainer.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 			files = (
 				FF8BC2032B10B93C000822D2 /* NANetwork.framework in Embed Frameworks */,
 				FF8BC1FF2B10B936000822D2 /* NAModels.framework in Embed Frameworks */,
+				FF361A182B286A8100D8FF8D /* NADatabase.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +68,9 @@
 		FF25376E2B21D09C00A3A2C8 /* TestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2537722B21D13D00A3A2C8 /* TestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2537762B21D15F00A3A2C8 /* TestUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TestUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF361A102B2869D300D8FF8D /* NADatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NADatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF361A132B286A2D00D8FF8D /* NADatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NADatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF361A162B286A8100D8FF8D /* NADatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NADatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF55F0542B20BAD100E16F6C /* NADataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NADataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF55F0562B20BAD100E16F6C /* NADataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NADataTests.swift; sourceTree = "<group>"; };
 		FF55F05E2B20BAF800E16F6C /* ArticlesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepositoryTests.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		FF8BC2012B10B93C000822D2 /* NANetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NANetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC2042B10B949000822D2 /* SourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesRepository.swift; sourceTree = "<group>"; };
 		FF8BC2302B10EB09000822D2 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
-		FFBEAEA72B2227FE0014229F /* GlobalContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalContainer.swift; sourceTree = "<group>"; };
 		FFBEAEB02B2229EE0014229F /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,7 @@
 				FF8BC2022B10B93C000822D2 /* NANetwork.framework in Frameworks */,
 				FFBEAEA62B22156F0014229F /* Swinject-Dynamic in Frameworks */,
 				FF8BC1FE2B10B936000822D2 /* NAModels.framework in Frameworks */,
+				FF361A172B286A8100D8FF8D /* NADatabase.framework in Frameworks */,
 				FFBEAEA42B22156F0014229F /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +144,6 @@
 				FF8BC2042B10B949000822D2 /* SourcesRepository.swift */,
 				FF8BC1ED2B10B91B000822D2 /* NAData.h */,
 				FF8BC1EE2B10B91B000822D2 /* NAData.docc */,
-				FFBEAEA72B2227FE0014229F /* GlobalContainer.swift */,
 				FFBEAEB02B2229EE0014229F /* DataContainer.swift */,
 			);
 			path = NAData;
@@ -148,6 +152,9 @@
 		FF8BC1FC2B10B936000822D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF361A162B286A8100D8FF8D /* NADatabase.framework */,
+				FF361A132B286A2D00D8FF8D /* NADatabase.framework */,
+				FF361A102B2869D300D8FF8D /* NADatabase.framework */,
 				FF2537762B21D15F00A3A2C8 /* TestUtils.framework */,
 				FF25376E2B21D09C00A3A2C8 /* TestUtils.framework */,
 				FF2537722B21D13D00A3A2C8 /* TestUtils.framework */,
@@ -284,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFBEAEA82B2227FE0014229F /* GlobalContainer.swift in Sources */,
 				FFBEAEB12B2229EE0014229F /* DataContainer.swift in Sources */,
 				FF8BC2312B10EB09000822D2 /* ArticlesRepository.swift in Sources */,
 				FF8BC2052B10B949000822D2 /* SourcesRepository.swift in Sources */,
