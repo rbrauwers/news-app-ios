@@ -105,11 +105,10 @@ private struct ArticlesList : View {
         List(filteredArticles) {
             ArticleItem(article: $0)
         }
+        .backport.contentUnavailable(condition: filteredArticles.isEmpty, text: searchTerm)
         .listStyle(.plain)
-        .backport
-        .accessibilityIdentifier("articlesList")
-        .backport
-        .searchable(text: $searchTerm, prompt: "Search articles")
+        .backport.accessibilityIdentifier("articlesList")
+        .backport.searchable(text: $searchTerm, prompt: "Search articles")
     }
     
 }

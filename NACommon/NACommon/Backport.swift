@@ -67,5 +67,14 @@ public extension Backport {
         }
     }
     
+    @ViewBuilder func contentUnavailable(condition: Bool, text: String) -> some View {
+        if condition, #available(iOS 17.0, *) {
+            content.overlay {
+                ContentUnavailableView.search(text: text)
+            }
+        } else {
+            content
+        }
+    }
     
 }
