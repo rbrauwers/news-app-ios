@@ -62,6 +62,22 @@ class DefaultNetworkDataSource : NetworkDataSource {
         return try JSONDecoder().decode(T.self, from: data)
     }
     
+    private func post<T : Codable>(urlPath: String, body: T) async throws {
+        guard let url = URL(string: urlPath) else {
+            throw NAErrors.invalidUrl
+        }
+        
+        guard let codableBody = try? JSONEncoder().encode(body) else {
+            throw NAErrors.invalidUrl
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = codableBody
+        
+        let (_, _) = try await URLSession.shared.data(for: request)
+    }
+    
 }
 
 public enum NAErrors : Error {
