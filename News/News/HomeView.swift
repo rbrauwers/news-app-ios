@@ -18,33 +18,50 @@ private enum SelectedTab: String, CaseIterable {
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
-            if #available(iOS 14.0, *) {
-                TabViewIOS14()
-            }
+        if #available(iOS 14.0, *) {
+            TabViewIOS15()
         }
     }
 }
 
 @available(iOS 14.0, *)
-struct TabViewIOS14: View {
+struct TabViewIOS15: View {
     @State private var selectedTab = SelectedTab.headlines
     @State private var title = SelectedTab.headlines.rawValue.capitalized
             
     var body: some View {
         TabView(selection: $selectedTab) {
-            ArticlesView()
-                .tabItem {
-                    Label("Headlines", systemImage: "newspaper")
-                }
-                .tag(SelectedTab.headlines)
+            NavigationView {
+                ArticlesView()
+                    .tag(SelectedTab.headlines)
+                    .customToolbar(title: "Headlines")
+            }
+            .tabItem {
+                Label("Headlines", systemImage: "newspaper")
+            }
+
+            NavigationView {
+                SourcesView()
+                    .tag(SelectedTab.sources)
+                    .customToolbar(title: "Sources")
+            }
+            .tabItem {
+                Label("Sources", systemImage: "person.2")
+            }
             
-            SourcesView()
-                .tabItem {
-                    Label("Sources", systemImage: "person.2")
-                }
-                .tag(SelectedTab.sources)
-        }.toolbar {
+        }
+        .onChange(of: selectedTab, perform: { value in
+            title = selectedTab.rawValue.capitalized
+        })
+    }
+    
+}
+
+private extension View {
+    
+    @available(iOS 14.0, *)
+    func customToolbar(title: String) -> some View {
+        return self.toolbar {
             ToolbarItem(placement: .principal) {
                 Text(title).font(.largeTitle)
             }
@@ -55,9 +72,6 @@ struct TabViewIOS14: View {
                 }
             }
         }
-        .onChange(of: selectedTab, perform: { value in
-            title = selectedTab.rawValue.capitalized
-        })
     }
     
 }

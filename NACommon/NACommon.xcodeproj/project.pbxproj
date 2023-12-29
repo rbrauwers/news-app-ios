@@ -12,6 +12,8 @@
 		FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A002B28652A00D8FF8D /* GlobalContainer.swift */; };
 		FF361A042B28654200D8FF8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A032B28654200D8FF8D /* Swinject */; };
 		FF361A062B28654200D8FF8D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A052B28654200D8FF8D /* Swinject-Dynamic */; };
+		FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */; };
+		FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C982B3EF49100D4915D /* Backport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		FF3619F12B28651A00D8FF8D /* NACommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NACommon.h; sourceTree = "<group>"; };
 		FF3619F22B28651A00D8FF8D /* NACommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NACommon.docc; sourceTree = "<group>"; };
 		FF361A002B28652A00D8FF8D /* GlobalContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalContainer.swift; sourceTree = "<group>"; };
+		FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		FFDD9C982B3EF49100D4915D /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 				FF3619F12B28651A00D8FF8D /* NACommon.h */,
 				FF3619F22B28651A00D8FF8D /* NACommon.docc */,
 				FF361A002B28652A00D8FF8D /* GlobalContainer.swift */,
+				FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */,
+				FFDD9C982B3EF49100D4915D /* Backport.swift */,
 			);
 			path = NACommon;
 			sourceTree = "<group>";
@@ -147,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */,
+				FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */,
 				FF3619F32B28651A00D8FF8D /* NACommon.docc in Sources */,
+				FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

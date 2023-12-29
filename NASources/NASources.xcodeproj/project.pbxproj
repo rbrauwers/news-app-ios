@@ -15,6 +15,8 @@
 		FF8BC20C2B10BE09000822D2 /* NAData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC20B2B10BE09000822D2 /* NAData.framework */; };
 		FF8BC20D2B10BE09000822D2 /* NAData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC20B2B10BE09000822D2 /* NAData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2412B14BA3D000822D2 /* SourceUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2402B14BA3D000822D2 /* SourceUI.swift */; };
+		FFDD9C962B3EE5A000D4915D /* NACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD9C952B3EE5A000D4915D /* NACommon.framework */; };
+		FFDD9C972B3EE5A000D4915D /* NACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD9C952B3EE5A000D4915D /* NACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,7 @@
 			files = (
 				FF8BC2092B10BCBB000822D2 /* NAModels.framework in Embed Frameworks */,
 				FF8BC20D2B10BE09000822D2 /* NAData.framework in Embed Frameworks */,
+				FFDD9C972B3EE5A000D4915D /* NACommon.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +43,7 @@
 		FF8BC2072B10BCBB000822D2 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC20B2B10BE09000822D2 /* NAData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC2402B14BA3D000822D2 /* SourceUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceUI.swift; sourceTree = "<group>"; };
+		FFDD9C952B3EE5A000D4915D /* NACommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NACommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			files = (
 				FF8BC2082B10BCBB000822D2 /* NAModels.framework in Frameworks */,
 				FF8BC20C2B10BE09000822D2 /* NAData.framework in Frameworks */,
+				FFDD9C962B3EE5A000D4915D /* NACommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,7 @@
 		FF8BC2062B10BCBB000822D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFDD9C952B3EE5A000D4915D /* NACommon.framework */,
 				FF8BC20B2B10BE09000822D2 /* NAData.framework */,
 				FF8BC2072B10BCBB000822D2 /* NAModels.framework */,
 			);

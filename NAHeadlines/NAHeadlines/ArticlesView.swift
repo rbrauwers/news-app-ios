@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Swinject
+import NACommon
 import NAData
 import NAModels
 import NANetwork
@@ -20,19 +21,14 @@ public struct ArticlesView : View {
     }
     
     public var body: some View {
-        if #available(iOS 14, *) {
-            ArticlesViewContent()
-                .environmentObject(
-                    ArticlesViewModel(repository: articlesRepository)
-                )
-        } else {
-            ArticlesViewLegacyContent()
-        }
+        ArticlesViewContent()
+            .environmentObject(
+                ArticlesViewModel(repository: articlesRepository)
+            )
     }
     
 }
 
-@available(iOS 14, *)
 struct ArticlesViewContent : View {
     @EnvironmentObject private var appState: AppState
     @EnvironmentObject private var viewModel: ArticlesViewModel
@@ -48,9 +44,8 @@ struct ArticlesViewContent : View {
                         .foregroundColor(.white)
                 }
                 
-                Text("Someone")
-                
                 Text("Hello, \(appState.user.name)")
+                    .backport
                     .accessibilityIdentifier("username")
                 
                 /*
@@ -66,7 +61,9 @@ struct ArticlesViewContent : View {
                  */
                 
                 if viewModel.repository.isLoading {
-                    ProgressView()
+                    if #available(iOS 14.0, *) {
+                        ProgressView()
+                    }
                 }
                 
                 ArticlesList(
@@ -86,38 +83,33 @@ struct ArticlesViewContent : View {
     
 }
 
-struct ArticlesViewLegacyContent : View {
-
-    var body: some View {
-        Text("ArticlesViewLegacyContent")
-    }
-    
-}
-
-@available(iOS 14, *)
 private struct ArticlesList : View {
     
     let articles: [ArticleUI]
+    @State private var searchTerm = ""
+    
+    private var filteredArticles: [ArticleUI] {
+        if searchTerm.isEmpty {
+            return articles
+        } else {
+            return articles.filter { article in
+                article.content.localizedCaseInsensitiveContains(searchTerm) ||
+                article.author.localizedCaseInsensitiveContains(searchTerm)
+            }
+        }
+    }
+    
     @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
-        List(articles) {
+        List(filteredArticles) {
             ArticleItem(article: $0)
         }
         .listStyle(.plain)
+        .backport
         .accessibilityIdentifier("articlesList")
-    }
-    
-}
-
-private extension View {
-    
-    func hiddenListRowSeparator() -> some View {
-        if #available(iOS 15.0, *) {
-            return self.listRowSeparator(.hidden)
-        } else {
-            return self
-        }
+        .backport
+        .searchable(text: $searchTerm, prompt: "Search articles")
     }
     
 }
@@ -164,25 +156,21 @@ private struct ArticleItem : View {
                 
                 Spacer()
                 
-                if #available(iOS 16.0, *) {
-                    Button {
-                        viewModel.like(article: article)
-                    } label: {
-                        let isLiked = viewModel.isLiked(article: article)
-                        
-                        Image(systemName: isLiked ? "heart.fill" : "heart")
-                            .accessibilityLabel(isLiked ? "liked" : "notLiked")
-                    }
-                    .tint(Color.accentColor)
-                    .buttonStyle(ScaleButtonStyle())
-                    .accessibilityIdentifier("likeButton")
+                Button {
+                    viewModel.like(article: article)
+                } label: {
+                    let isLiked = viewModel.isLiked(article: article)
                     
-                } else {
-                    Image(systemName: "heart")
+                    Image(systemName: isLiked ? "heart.fill" : "heart")
+                        .backport.accessibilityLabel(isLiked ? "liked" : "notLiked")
                 }
+                .backport.tint(Color.accentColor)
+                .buttonStyle(ScaleButtonStyle())
+                .backport.accessibilityIdentifier("likeButton")
             }
         }
         .frame(height: 120)
+        .backport
         .hiddenListRowSeparator()
         .padding()
         .background(Color(red: 0.93, green: 0.9, blue: 0.96))
@@ -206,7 +194,6 @@ private struct ScaleButtonStyle: ButtonStyle {
     }
 }
 
-@available(iOS 14, *)
 #Preview("Articles list2") {
     let article = ArticleUI(
         article: Article(

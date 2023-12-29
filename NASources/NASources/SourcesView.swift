@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import NACommon
 import NAData
 import NAModels
 
@@ -14,16 +15,11 @@ public struct SourcesView : View {
     public init() {}
     
     public var body: some View {
-        if #available(iOS 14, *) {
-            SourcesViewContent()
-        } else {
-            SourcesViewLegacyContent()
-        }
+        SourcesViewContent()
     }
     
 }
 
-@available(iOS 14, *)
 struct SourcesViewContent : View {
     @EnvironmentObject private var repository: SourcesRepository
     
@@ -38,7 +34,9 @@ struct SourcesViewContent : View {
             }
             
             if repository.isLoading {
-                ProgressView()
+                if #available(iOS 14.0, *) {
+                    ProgressView()
+                }
             }
             
             SourcesList(sources: repository.sources.compactMap {
@@ -49,22 +47,29 @@ struct SourcesViewContent : View {
     
 }
 
-struct SourcesViewLegacyContent : View {
-
-    var body: some View {
-        Text("SourcesViewLegacyContent")
-    }
-    
-}
-
 struct SourcesList : View {
     
     let sources: [SourceUI]
+
+    @State private var searchTerm = ""
+    
+    private var filteredSources : [SourceUI] {
+        if searchTerm.isEmpty {
+            return sources
+        } else {
+            return sources.filter { source in
+                source.name.localizedCaseInsensitiveContains(searchTerm) ||
+                source.category.localizedStandardContains(searchTerm)
+            }
+        }
+    }
     
     var body: some View {
-        List(sources) {
+        List(filteredSources) {
             SourceItem(source: $0)
         }
+        .backport
+        .searchable(text: $searchTerm, prompt: "Search sources")
     }
     
 }
