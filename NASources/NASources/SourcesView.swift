@@ -65,7 +65,7 @@ struct SourcesList : View {
     }
     
     var body: some View {
-        List(filteredSources) {
+        List(filteredSources, id: \.id) {
             SourceItem(source: $0)
         }
         .backport.contentUnavailable(condition: filteredSources.isEmpty, text: searchTerm)

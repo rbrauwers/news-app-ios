@@ -102,7 +102,7 @@ private struct ArticlesList : View {
     @EnvironmentObject private var viewModel: ArticlesViewModel
     
     var body: some View {
-        List(filteredArticles) {
+        List(filteredArticles, id: \.id) {
             ArticleItem(article: $0)
         }
         .backport.contentUnavailable(condition: filteredArticles.isEmpty, text: searchTerm)
