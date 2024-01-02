@@ -37,7 +37,7 @@ class DefaultNetworkDataSource : NetworkDataSource {
     public func getArticles() async throws -> [Article] {
         let response: HeadlinesResponse = try await get(urlPath: "v2/top-headlines?country=us")
         if response.status.isOk() {
-            return response.articles
+            return response.articles.filter { $0.author != nil }
         } else {
             throw NAErrors.apiUnavailable
         }
