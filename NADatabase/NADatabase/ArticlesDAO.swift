@@ -39,12 +39,10 @@ class DefaultArticlesDAO : ArticlesDAO {
     func upsert(article: Article) {
         guard let entity = load(articleId: article.id) else {
             let result = insert(article: article)
-            debugPrint("insert result: \(result)")
             return
         }
         
         let result = update(entity: entity, with: article)
-        debugPrint("update result: \(result)")
     }
 
     func load() -> Result<[Article], Error> {
