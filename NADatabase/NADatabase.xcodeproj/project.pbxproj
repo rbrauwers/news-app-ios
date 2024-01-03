@@ -13,7 +13,6 @@
 		FF3619E32B28630800D8FF8D /* PersistentContainerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3619E22B28630800D8FF8D /* PersistentContainerProvider.swift */; };
 		FF361A0A2B2865D800D8FF8D /* DatabaseContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A092B2865D800D8FF8D /* DatabaseContainer.swift */; };
 		FF361A0D2B2865E700D8FF8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A0C2B2865E700D8FF8D /* Swinject */; };
-		FF361A0F2B2865E700D8FF8D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A0E2B2865E700D8FF8D /* Swinject-Dynamic */; };
 		FF361A1A2B286BD900D8FF8D /* ArticlesDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A192B286BD900D8FF8D /* ArticlesDAO.swift */; };
 		FF361A202B2872BF00D8FF8D /* NADatabase+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A1F2B2872BF00D8FF8D /* NADatabase+Bundle.swift */; };
 		FF361A2B2B28835A00D8FF8D /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A292B28835A00D8FF8D /* ArticleEntity.swift */; };
@@ -56,7 +55,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF361A0D2B2865E700D8FF8D /* Swinject in Frameworks */,
-				FF361A0F2B2865E700D8FF8D /* Swinject-Dynamic in Frameworks */,
 				FF361A2F2B2885A400D8FF8D /* NAModels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +134,6 @@
 			name = NADatabase;
 			packageProductDependencies = (
 				FF361A0C2B2865E700D8FF8D /* Swinject */,
-				FF361A0E2B2865E700D8FF8D /* Swinject-Dynamic */,
 			);
 			productName = NADatabase;
 			productReference = FF3619CD2B28618900D8FF8D /* NADatabase.framework */;
@@ -434,11 +431,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF361A0B2B2865E700D8FF8D /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		FF361A0E2B2865E700D8FF8D /* Swinject-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF361A0B2B2865E700D8FF8D /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 

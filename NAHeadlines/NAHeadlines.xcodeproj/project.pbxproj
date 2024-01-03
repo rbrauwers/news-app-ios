@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF34B0FC2B45A67700638294 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF34B0FB2B45A67700638294 /* Swinject */; };
 		FF8BC21F2B10E5D1000822D2 /* NAHeadlines.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC21E2B10E5D1000822D2 /* NAHeadlines.docc */; };
 		FF8BC2202B10E5D1000822D2 /* NAHeadlines.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC21D2B10E5D1000822D2 /* NAHeadlines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8BC2332B10EBE8000822D2 /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2322B10EBE8000822D2 /* ArticlesView.swift */; };
@@ -49,6 +50,7 @@
 			files = (
 				FFDD9C9B2B3EF68500D4915D /* NACommon.framework in Frameworks */,
 				FF8BC2382B10EEE7000822D2 /* NAData.framework in Frameworks */,
+				FF34B0FC2B45A67700638294 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +123,9 @@
 			dependencies = (
 			);
 			name = NAHeadlines;
+			packageProductDependencies = (
+				FF34B0FB2B45A67700638294 /* Swinject */,
+			);
 			productName = NAHeadlines;
 			productReference = FF8BC21A2B10E5D1000822D2 /* NAHeadlines.framework */;
 			productType = "com.apple.product-type.framework";
@@ -148,6 +153,9 @@
 				Base,
 			);
 			mainGroup = FF8BC2102B10E5D1000822D2;
+			packageReferences = (
+				FF34B0FA2B45A67700638294 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = FF8BC21B2B10E5D1000822D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -392,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF34B0FA2B45A67700638294 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF34B0FB2B45A67700638294 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF34B0FA2B45A67700638294 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FF8BC2112B10E5D1000822D2 /* Project object */;
 }

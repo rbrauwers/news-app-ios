@@ -123,7 +123,8 @@ private struct ArticleItem : View {
                     Text(publishedAt)
                         .font(.caption)
                         .padding(EdgeInsets(top: 4.0, leading: 8.0, bottom: 4.0, trailing: 8.0))
-                        .background(Color.white)
+                        .background(Color._onSecondaryContainer)
+                        .foregroundColor(Color.black)
                         .cornerRadius(5.0)
                 }
             }
@@ -151,7 +152,7 @@ private struct ArticleItem : View {
                     Image(systemName: isLiked ? "heart.fill" : "heart")
                         .backport.accessibilityLabel(isLiked ? "liked" : "notLiked")
                 }
-                .backport.tint(Color.accentColor)
+                .foregroundColor(Color._accent)
                 .buttonStyle(ScaleButtonStyle())
                 .backport.accessibilityIdentifier("likeButton")
             }
@@ -160,7 +161,7 @@ private struct ArticleItem : View {
         .backport
         .hiddenListRowSeparator()
         .padding()
-        .background(Color(red: 0.93, green: 0.9, blue: 0.96))
+        .background(Color._primaryContainer)
         .cornerRadius(10.0)
     }
     
@@ -211,7 +212,7 @@ private struct ScaleButtonStyle: ButtonStyle {
         .registerDataDependencies()
     
     return ArticlesList(articles: [article, article2])
-        .environmentObject(ArticlesViewModel(repository: container.resolve(ArticlesRepository.self)!))
+            .environmentObject(ArticlesViewModel(repository: container.resolve(ArticlesRepository.self)!))
 }
 
 @MainActor
