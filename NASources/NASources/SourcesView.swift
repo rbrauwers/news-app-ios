@@ -89,7 +89,6 @@ struct SourceItem : View {
                 Spacer()
                             
                 Text(source.language).font(.caption)
-                Image(systemName: "chevron.right")
             }
         }
     }

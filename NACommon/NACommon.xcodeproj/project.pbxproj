@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF34B0FE2B45A9FC00638294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF34B0FD2B45A9FC00638294 /* Assets.xcassets */; };
+		FF34B1002B45AB4D00638294 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF34B0FF2B45AB4D00638294 /* ColorExtensions.swift */; };
 		FF3619F32B28651A00D8FF8D /* NACommon.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF3619F22B28651A00D8FF8D /* NACommon.docc */; };
 		FF3619F42B28651A00D8FF8D /* NACommon.h in Headers */ = {isa = PBXBuildFile; fileRef = FF3619F12B28651A00D8FF8D /* NACommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A002B28652A00D8FF8D /* GlobalContainer.swift */; };
 		FF361A042B28654200D8FF8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A032B28654200D8FF8D /* Swinject */; };
-		FF361A062B28654200D8FF8D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A052B28654200D8FF8D /* Swinject-Dynamic */; };
 		FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */; };
 		FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C982B3EF49100D4915D /* Backport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF34B0FD2B45A9FC00638294 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF34B0FF2B45AB4D00638294 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		FF3619EE2B28651A00D8FF8D /* NACommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NACommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3619F12B28651A00D8FF8D /* NACommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NACommon.h; sourceTree = "<group>"; };
 		FF3619F22B28651A00D8FF8D /* NACommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NACommon.docc; sourceTree = "<group>"; };
@@ -31,7 +34,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF361A042B28654200D8FF8D /* Swinject in Frameworks */,
-				FF361A062B28654200D8FF8D /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +43,7 @@
 		FF3619E42B28651A00D8FF8D = {
 			isa = PBXGroup;
 			children = (
+				FF34B0FD2B45A9FC00638294 /* Assets.xcassets */,
 				FF3619F02B28651A00D8FF8D /* NACommon */,
 				FF3619EF2B28651A00D8FF8D /* Products */,
 			);
@@ -62,6 +65,7 @@
 				FF361A002B28652A00D8FF8D /* GlobalContainer.swift */,
 				FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */,
 				FFDD9C982B3EF49100D4915D /* Backport.swift */,
+				FF34B0FF2B45AB4D00638294 /* ColorExtensions.swift */,
 			);
 			path = NACommon;
 			sourceTree = "<group>";
@@ -96,7 +100,6 @@
 			name = NACommon;
 			packageProductDependencies = (
 				FF361A032B28654200D8FF8D /* Swinject */,
-				FF361A052B28654200D8FF8D /* Swinject-Dynamic */,
 			);
 			productName = NACommon;
 			productReference = FF3619EE2B28651A00D8FF8D /* NACommon.framework */;
@@ -142,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF34B0FE2B45A9FC00638294 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */,
+				FF34B1002B45AB4D00638294 /* ColorExtensions.swift in Sources */,
 				FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */,
 				FF3619F32B28651A00D8FF8D /* NACommon.docc in Sources */,
 				FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */,
@@ -390,11 +395,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF361A022B28654200D8FF8D /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		FF361A052B28654200D8FF8D /* Swinject-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF361A022B28654200D8FF8D /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

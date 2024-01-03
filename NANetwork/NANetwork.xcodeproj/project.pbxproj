@@ -31,7 +31,6 @@
 		FF8D52D32B4582FC000DA5DF /* GraphQLDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52D22B4582FC000DA5DF /* GraphQLDataSource.swift */; };
 		FFBEAEAA2B22288D0014229F /* NetworkContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEA92B22288D0014229F /* NetworkContainer.swift */; };
 		FFBEAEAD2B22289E0014229F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEAC2B22289E0014229F /* Swinject */; };
-		FFBEAEAF2B22289E0014229F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEAE2B22289E0014229F /* Swinject-Dynamic */; };
 		FFBEAEB32B222B1F0014229F /* NetworkDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEB22B222B1F0014229F /* NetworkDataSourceMock.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFBEAEAF2B22289E0014229F /* Swinject-Dynamic in Frameworks */,
 				FF8D52B72B457BB7000DA5DF /* Apollo in Frameworks */,
 				FF8BC1DD2B10B3DB000822D2 /* NAModels.framework in Frameworks */,
 				FFBEAEAD2B22289E0014229F /* Swinject in Frameworks */,
@@ -268,7 +266,6 @@
 			name = NANetwork;
 			packageProductDependencies = (
 				FFBEAEAC2B22289E0014229F /* Swinject */,
-				FFBEAEAE2B22289E0014229F /* Swinject-Dynamic */,
 				FF8D52B62B457BB7000DA5DF /* Apollo */,
 			);
 			productName = NANetwork;
@@ -662,11 +659,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFBEAEAB2B22289E0014229F /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		FFBEAEAE2B22289E0014229F /* Swinject-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FFBEAEAB2B22289E0014229F /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
