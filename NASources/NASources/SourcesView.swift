@@ -79,16 +79,18 @@ struct SourceItem : View {
     let source: SourceUI
     
     var body: some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading) {
-                Text(source.name).font(.headline)
-                Text(source.category).font(.subheadline)
+        NavigationLink(destination: SourceDetailsView(source: source)) {
+            HStack(alignment: .center) {
+                VStack(alignment: .leading) {
+                    Text(source.name).font(.headline)
+                    Text(source.category).font(.subheadline)
+                }
+                
+                Spacer()
+                            
+                Text(source.language).font(.caption)
+                Image(systemName: "chevron.right")
             }
-            
-            Spacer()
-                        
-            Text(source.language).font(.caption)
-            Image(systemName: "chevron.right")
         }
     }
     

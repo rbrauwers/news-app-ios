@@ -15,6 +15,8 @@
 		FF8BC20C2B10BE09000822D2 /* NAData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC20B2B10BE09000822D2 /* NAData.framework */; };
 		FF8BC20D2B10BE09000822D2 /* NAData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC20B2B10BE09000822D2 /* NAData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2412B14BA3D000822D2 /* SourceUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2402B14BA3D000822D2 /* SourceUI.swift */; };
+		FF8D52B22B44945F000DA5DF /* SourceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52B12B44945F000DA5DF /* SourceDetailsView.swift */; };
+		FF8D52B42B4579C9000DA5DF /* SourceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52B32B4579C9000DA5DF /* SourceDetailsViewModel.swift */; };
 		FFDD9C962B3EE5A000D4915D /* NACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD9C952B3EE5A000D4915D /* NACommon.framework */; };
 		FFDD9C972B3EE5A000D4915D /* NACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFDD9C952B3EE5A000D4915D /* NACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -43,6 +45,8 @@
 		FF8BC2072B10BCBB000822D2 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC20B2B10BE09000822D2 /* NAData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC2402B14BA3D000822D2 /* SourceUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceUI.swift; sourceTree = "<group>"; };
+		FF8D52B12B44945F000DA5DF /* SourceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDetailsView.swift; sourceTree = "<group>"; };
+		FF8D52B32B4579C9000DA5DF /* SourceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceDetailsViewModel.swift; sourceTree = "<group>"; };
 		FFDD9C952B3EE5A000D4915D /* NACommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NACommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,6 +88,8 @@
 				FF8BC1A72B10ADFD000822D2 /* NASources.docc */,
 				FF8BC1B52B10AE25000822D2 /* SourcesView.swift */,
 				FF8BC2402B14BA3D000822D2 /* SourceUI.swift */,
+				FF8D52B12B44945F000DA5DF /* SourceDetailsView.swift */,
+				FF8D52B32B4579C9000DA5DF /* SourceDetailsViewModel.swift */,
 			);
 			path = NASources;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8D52B22B44945F000DA5DF /* SourceDetailsView.swift in Sources */,
+				FF8D52B42B4579C9000DA5DF /* SourceDetailsViewModel.swift in Sources */,
 				FF8BC1B62B10AE25000822D2 /* SourcesView.swift in Sources */,
 				FF8BC2412B14BA3D000822D2 /* SourceUI.swift in Sources */,
 				FF8BC1A82B10ADFD000822D2 /* NASources.docc in Sources */,

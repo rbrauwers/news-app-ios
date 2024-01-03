@@ -48,18 +48,6 @@ struct ArticlesViewContent : View {
                     .backport
                     .accessibilityIdentifier("username")
                 
-                /*
-                NavigationLink(destination: InfoView()) {
-                    if #available(iOS 16, *) {
-                        // Without this toolbar stuff the tab doesn't obey correct insets
-                        // Maybe this solution works
-                        // https://stackoverflow.com/questions/69165132/swift-ui-clicking-navigation-bar-link-hides-status-bar-on-back
-                        Text("Click me").toolbar(.hidden, for: .bottomBar)
-                    }
-                }
-                .buttonStyle(.plain)
-                 */
-                
                 if viewModel.repository.isLoading {
                     if #available(iOS 14.0, *) {
                         ProgressView()
@@ -228,6 +216,7 @@ private struct ScaleButtonStyle: ButtonStyle {
 
 @MainActor
 class ArticlesViewModel : ObservableObject {
+    
     @Published var liking: Bool = false
     @Published var likedArticles = [ArticleUI]()
     private var likingTask: Task<(),Error>? = nil

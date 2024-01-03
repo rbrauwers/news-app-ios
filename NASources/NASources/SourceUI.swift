@@ -8,18 +8,20 @@
 import Foundation
 import NAModels
 
-struct SourceUI : Identifiable {
+struct SourceUI : Identifiable, Hashable {
     
     let id: String
     let name: String
     let category: String
     let language: String
+    let description: String
     
     init(source: Source) {
         self.id = source.id
         self.name = source.name ?? "N/A"
         self.category = source.category ?? "N/A"
         self.language = source.language ?? "N/A"
+        self.description = source.description ?? "N/A"
     }
     
 }

@@ -77,4 +77,24 @@ public extension Backport {
         }
     }
     
+    @ViewBuilder func navigationTitle(_ title: String) -> some View {
+        if #available(iOS 14.0, *) {
+            content.navigationTitle(title)
+        } else {
+            content
+        }
+    }
+    
+    @ViewBuilder func toolbarTitle(_ title: String) -> some View {
+        if #available(iOS 14.0, *) {
+            content.toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(title).font(.largeTitle)
+                }
+            }
+        } else {
+            content
+        }
+    }
+    
 }
