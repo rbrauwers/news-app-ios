@@ -22,6 +22,7 @@
 		FF8BC2032B10B93C000822D2 /* NANetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2012B10B93C000822D2 /* NANetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2052B10B949000822D2 /* SourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2042B10B949000822D2 /* SourcesRepository.swift */; };
 		FF8BC2312B10EB09000822D2 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2302B10EB09000822D2 /* ArticlesRepository.swift */; };
+		FF8D52D72B458A0A000DA5DF /* CountriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52D62B458A0A000DA5DF /* CountriesRepository.swift */; };
 		FFBEAEA42B22156F0014229F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEA32B22156F0014229F /* Swinject */; };
 		FFBEAEA62B22156F0014229F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEA52B22156F0014229F /* Swinject-Dynamic */; };
 		FFBEAEB12B2229EE0014229F /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEB02B2229EE0014229F /* DataContainer.swift */; };
@@ -81,6 +82,7 @@
 		FF8BC2012B10B93C000822D2 /* NANetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NANetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC2042B10B949000822D2 /* SourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesRepository.swift; sourceTree = "<group>"; };
 		FF8BC2302B10EB09000822D2 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
+		FF8D52D62B458A0A000DA5DF /* CountriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRepository.swift; sourceTree = "<group>"; };
 		FFBEAEB02B2229EE0014229F /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				FF8BC1ED2B10B91B000822D2 /* NAData.h */,
 				FF8BC1EE2B10B91B000822D2 /* NAData.docc */,
 				FFBEAEB02B2229EE0014229F /* DataContainer.swift */,
+				FF8D52D62B458A0A000DA5DF /* CountriesRepository.swift */,
 			);
 			path = NAData;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFBEAEB12B2229EE0014229F /* DataContainer.swift in Sources */,
+				FF8D52D72B458A0A000DA5DF /* CountriesRepository.swift in Sources */,
 				FF8BC2312B10EB09000822D2 /* ArticlesRepository.swift in Sources */,
 				FF8BC2052B10B949000822D2 /* SourcesRepository.swift in Sources */,
 				FF8BC1EF2B10B91B000822D2 /* NAData.docc in Sources */,
