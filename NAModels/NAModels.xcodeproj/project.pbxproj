@@ -15,6 +15,8 @@
 		FF8BC22F2B10E654000822D2 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC22E2B10E654000822D2 /* Article.swift */; };
 		FF8BC2452B15F6A1000822D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2442B15F6A1000822D2 /* User.swift */; };
 		FF8BC26C2B1607CA000822D2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC26B2B1607CA000822D2 /* AppState.swift */; };
+		FF8D52D52B458715000DA5DF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52D42B458715000DA5DF /* Country.swift */; };
+		FF8D52D92B458FB3000DA5DF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52D82B458FB3000DA5DF /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		FF8BC22E2B10E654000822D2 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FF8BC2442B15F6A1000822D2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF8BC26B2B1607CA000822D2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FF8D52D42B458715000DA5DF /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		FF8D52D82B458FB3000DA5DF /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				FF8BC1D72B10B1C0000822D2 /* SourcesResponse.swift */,
 				FF8BC22C2B10E5F9000822D2 /* HeadlinesResponse.swift */,
 				FF8BC26B2B1607CA000822D2 /* AppState.swift */,
+				FF8D52D42B458715000DA5DF /* Country.swift */,
+				FF8D52D82B458FB3000DA5DF /* Errors.swift */,
 			);
 			path = NAModels;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 				FF8BC1C82B10B0FD000822D2 /* NAModels.docc in Sources */,
 				FF8BC26C2B1607CA000822D2 /* AppState.swift in Sources */,
 				FF8BC2452B15F6A1000822D2 /* User.swift in Sources */,
+				FF8D52D92B458FB3000DA5DF /* Errors.swift in Sources */,
+				FF8D52D52B458715000DA5DF /* Country.swift in Sources */,
 				FF8BC22D2B10E5F9000822D2 /* HeadlinesResponse.swift in Sources */,
 				FF8BC1D82B10B1C0000822D2 /* SourcesResponse.swift in Sources */,
 				FF8BC22F2B10E654000822D2 /* Article.swift in Sources */,

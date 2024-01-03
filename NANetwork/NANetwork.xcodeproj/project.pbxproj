@@ -17,6 +17,18 @@
 		FF8BC1DD2B10B3DB000822D2 /* NAModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1DC2B10B3DB000822D2 /* NAModels.framework */; };
 		FF8BC1DE2B10B3DB000822D2 /* NAModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1DC2B10B3DB000822D2 /* NAModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC23F2B14B60B000822D2 /* NANetwork+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC23E2B14B60B000822D2 /* NANetwork+Bundle.swift */; };
+		FF8D52B72B457BB7000DA5DF /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = FF8D52B62B457BB7000DA5DF /* Apollo */; };
+		FF8D52BA2B457D00000DA5DF /* countries.graphqls in Resources */ = {isa = PBXBuildFile; fileRef = FF8D52B92B457D00000DA5DF /* countries.graphqls */; };
+		FF8D52BC2B4580EC000DA5DF /* GetCountry.graphql in Resources */ = {isa = PBXBuildFile; fileRef = FF8D52BB2B4580EC000DA5DF /* GetCountry.graphql */; };
+		FF8D52CA2B4581F4000DA5DF /* NewsAppGraphQL.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52BE2B4581F4000DA5DF /* NewsAppGraphQL.graphql.swift */; };
+		FF8D52CB2B4581F4000DA5DF /* GetCountryQuery.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C12B4581F4000DA5DF /* GetCountryQuery.graphql.swift */; };
+		FF8D52CC2B4581F4000DA5DF /* State.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C42B4581F4000DA5DF /* State.graphql.swift */; };
+		FF8D52CD2B4581F4000DA5DF /* Query.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C52B4581F4000DA5DF /* Query.graphql.swift */; };
+		FF8D52CE2B4581F4000DA5DF /* Country.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C62B4581F4000DA5DF /* Country.graphql.swift */; };
+		FF8D52CF2B4581F4000DA5DF /* Continent.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C72B4581F4000DA5DF /* Continent.graphql.swift */; };
+		FF8D52D02B4581F4000DA5DF /* SchemaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C82B4581F4000DA5DF /* SchemaConfiguration.swift */; };
+		FF8D52D12B4581F4000DA5DF /* SchemaMetadata.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52C92B4581F4000DA5DF /* SchemaMetadata.graphql.swift */; };
+		FF8D52D32B4582FC000DA5DF /* GraphQLDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D52D22B4582FC000DA5DF /* GraphQLDataSource.swift */; };
 		FFBEAEAA2B22288D0014229F /* NetworkContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEAEA92B22288D0014229F /* NetworkContainer.swift */; };
 		FFBEAEAD2B22289E0014229F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEAC2B22289E0014229F /* Swinject */; };
 		FFBEAEAF2B22289E0014229F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FFBEAEAE2B22289E0014229F /* Swinject-Dynamic */; };
@@ -59,6 +71,17 @@
 		FF8BC1DC2B10B3DB000822D2 /* NAModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NAModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC23D2B14B4AD000822D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF8BC23E2B14B60B000822D2 /* NANetwork+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NANetwork+Bundle.swift"; sourceTree = "<group>"; };
+		FF8D52B92B457D00000DA5DF /* countries.graphqls */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = countries.graphqls; sourceTree = "<group>"; };
+		FF8D52BB2B4580EC000DA5DF /* GetCountry.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetCountry.graphql; sourceTree = "<group>"; };
+		FF8D52BE2B4581F4000DA5DF /* NewsAppGraphQL.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAppGraphQL.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C12B4581F4000DA5DF /* GetCountryQuery.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCountryQuery.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C42B4581F4000DA5DF /* State.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C52B4581F4000DA5DF /* Query.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C62B4581F4000DA5DF /* Country.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C72B4581F4000DA5DF /* Continent.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Continent.graphql.swift; sourceTree = "<group>"; };
+		FF8D52C82B4581F4000DA5DF /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
+		FF8D52C92B4581F4000DA5DF /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
+		FF8D52D22B4582FC000DA5DF /* GraphQLDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLDataSource.swift; sourceTree = "<group>"; };
 		FFBEAEA92B22288D0014229F /* NetworkContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContainer.swift; sourceTree = "<group>"; };
 		FFBEAEB22B222B1F0014229F /* NetworkDataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSourceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFBEAEAF2B22289E0014229F /* Swinject-Dynamic in Frameworks */,
+				FF8D52B72B457BB7000DA5DF /* Apollo in Frameworks */,
 				FF8BC1DD2B10B3DB000822D2 /* NAModels.framework in Frameworks */,
 				FFBEAEAD2B22289E0014229F /* Swinject in Frameworks */,
 			);
@@ -97,6 +121,8 @@
 		FF8BC1752B10ABE0000822D2 = {
 			isa = PBXGroup;
 			children = (
+				FF8D52BD2B4581F4000DA5DF /* NewsAppGraphQL */,
+				FF8D52B82B457C1C000DA5DF /* GraphQL */,
 				FFBEAEB22B222B1F0014229F /* NetworkDataSourceMock.swift */,
 				FF8BC1812B10ABE0000822D2 /* NANetwork */,
 				FF55F0452B20B5F300E16F6C /* NANetworkTests */,
@@ -124,6 +150,7 @@
 				FF8BC1912B10AC3F000822D2 /* NANetwork+URLSession.swift */,
 				FF8BC23E2B14B60B000822D2 /* NANetwork+Bundle.swift */,
 				FFBEAEA92B22288D0014229F /* NetworkContainer.swift */,
+				FF8D52D22B4582FC000DA5DF /* GraphQLDataSource.swift */,
 			);
 			path = NANetwork;
 			sourceTree = "<group>";
@@ -134,6 +161,62 @@
 				FF8BC1DC2B10B3DB000822D2 /* NAModels.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF8D52B82B457C1C000DA5DF /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52BB2B4580EC000DA5DF /* GetCountry.graphql */,
+				FF8D52B92B457D00000DA5DF /* countries.graphqls */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		FF8D52BD2B4581F4000DA5DF /* NewsAppGraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52BE2B4581F4000DA5DF /* NewsAppGraphQL.graphql.swift */,
+				FF8D52BF2B4581F4000DA5DF /* Operations */,
+				FF8D52C22B4581F4000DA5DF /* Schema */,
+			);
+			path = NewsAppGraphQL;
+			sourceTree = "<group>";
+		};
+		FF8D52BF2B4581F4000DA5DF /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52C02B4581F4000DA5DF /* Queries */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		FF8D52C02B4581F4000DA5DF /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52C12B4581F4000DA5DF /* GetCountryQuery.graphql.swift */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		FF8D52C22B4581F4000DA5DF /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52C32B4581F4000DA5DF /* Objects */,
+				FF8D52C82B4581F4000DA5DF /* SchemaConfiguration.swift */,
+				FF8D52C92B4581F4000DA5DF /* SchemaMetadata.graphql.swift */,
+			);
+			path = Schema;
+			sourceTree = "<group>";
+		};
+		FF8D52C32B4581F4000DA5DF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D52C42B4581F4000DA5DF /* State.graphql.swift */,
+				FF8D52C52B4581F4000DA5DF /* Query.graphql.swift */,
+				FF8D52C62B4581F4000DA5DF /* Country.graphql.swift */,
+				FF8D52C72B4581F4000DA5DF /* Continent.graphql.swift */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +269,7 @@
 			packageProductDependencies = (
 				FFBEAEAC2B22289E0014229F /* Swinject */,
 				FFBEAEAE2B22289E0014229F /* Swinject-Dynamic */,
+				FF8D52B62B457BB7000DA5DF /* Apollo */,
 			);
 			productName = NANetwork;
 			productReference = FF8BC17F2B10ABE0000822D2 /* NANetwork.framework */;
@@ -220,6 +304,7 @@
 			mainGroup = FF8BC1752B10ABE0000822D2;
 			packageReferences = (
 				FFBEAEAB2B22289E0014229F /* XCRemoteSwiftPackageReference "Swinject" */,
+				FF8D52B52B457BB7000DA5DF /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = FF8BC1802B10ABE0000822D2 /* Products */;
 			projectDirPath = "";
@@ -243,6 +328,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8D52BA2B457D00000DA5DF /* countries.graphqls in Resources */,
+				FF8D52BC2B4580EC000DA5DF /* GetCountry.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,10 +351,19 @@
 			files = (
 				FF8BC1922B10AC3F000822D2 /* NANetwork+URLSession.swift in Sources */,
 				FF8BC1DA2B10B3B1000822D2 /* NetworkDataSource.swift in Sources */,
+				FF8D52D12B4581F4000DA5DF /* SchemaMetadata.graphql.swift in Sources */,
+				FF8D52CE2B4581F4000DA5DF /* Country.graphql.swift in Sources */,
 				FF8BC1842B10ABE0000822D2 /* NANetwork.docc in Sources */,
 				FFBEAEB32B222B1F0014229F /* NetworkDataSourceMock.swift in Sources */,
+				FF8D52CC2B4581F4000DA5DF /* State.graphql.swift in Sources */,
+				FF8D52CA2B4581F4000DA5DF /* NewsAppGraphQL.graphql.swift in Sources */,
+				FF8D52D02B4581F4000DA5DF /* SchemaConfiguration.swift in Sources */,
+				FF8D52D32B4582FC000DA5DF /* GraphQLDataSource.swift in Sources */,
 				FFBEAEAA2B22288D0014229F /* NetworkContainer.swift in Sources */,
+				FF8D52CD2B4581F4000DA5DF /* Query.graphql.swift in Sources */,
+				FF8D52CF2B4581F4000DA5DF /* Continent.graphql.swift in Sources */,
 				FF8BC23F2B14B60B000822D2 /* NANetwork+Bundle.swift in Sources */,
+				FF8D52CB2B4581F4000DA5DF /* GetCountryQuery.graphql.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +634,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FF8D52B52B457BB7000DA5DF /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 		FFBEAEAB2B22289E0014229F /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -549,6 +653,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FF8D52B62B457BB7000DA5DF /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF8D52B52B457BB7000DA5DF /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
 		FFBEAEAC2B22289E0014229F /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FFBEAEAB2B22289E0014229F /* XCRemoteSwiftPackageReference "Swinject" */;

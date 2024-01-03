@@ -1,0 +1,29 @@
+{
+  "schemaNamespace" : "NewsAppGraphQL",
+  "input" : {
+    "operationSearchPaths" : [
+      "**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "**/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./NewsAppGraphQL",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "NANetwork"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

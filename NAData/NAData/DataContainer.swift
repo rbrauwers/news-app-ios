@@ -37,6 +37,15 @@ public extension Container {
         }
         .inObjectScope(.container)
         
+        register(CountriesRepository.self) { resolver in
+            guard let graphQLDataSource = resolver.resolve(GraphQLDataSource.self) else {
+                fatalError("Could not resolve Graph QL data source")
+            }
+            
+            return DefaultCountriesRepository(graphQLDataSource: graphQLDataSource)
+        }
+        .inObjectScope(.container)
+        
         return self
     }
     

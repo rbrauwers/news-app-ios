@@ -15,6 +15,7 @@ struct SourceUI : Identifiable, Hashable {
     let category: String
     let language: String
     let description: String
+    let country: String
     
     init(source: Source) {
         self.id = source.id
@@ -22,6 +23,7 @@ struct SourceUI : Identifiable, Hashable {
         self.category = source.category ?? "N/A"
         self.language = source.language ?? "N/A"
         self.description = source.description ?? "N/A"
+        self.country = source.country ?? "N/A"
     }
     
 }

@@ -11,6 +11,7 @@ import NAData
 import NAModels
 import NANetwork
 import NAProfile
+import NASources
 import TestUtils
 import Swinject
 
@@ -50,6 +51,7 @@ struct NewsApp: App {
         globalContainer
             .registerNetworkDependencies(uiTesting: uiTesting)
             .registerDataDependencies()
+            .registerSourcesDependencies()
     }
     
     private func load() {
