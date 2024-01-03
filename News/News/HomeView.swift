@@ -71,6 +71,12 @@ private extension View {
                     Image(systemName: "person.circle")
                 }
             }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gear")
+                }
+            }
         }
     }
     

@@ -36,6 +36,7 @@
 		FFDC7A832B10A55800FC8F71 /* NewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A822B10A55800FC8F71 /* NewsUITests.swift */; };
 		FFDC7A852B10A55800FC8F71 /* NewsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A842B10A55800FC8F71 /* NewsUITestsLaunchTests.swift */; };
 		FFDC7A922B10A64D00FC8F71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A912B10A64D00FC8F71 /* SceneDelegate.swift */; };
+		FFF41E3A2B45D64E004F96E8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF41E392B45D64E004F96E8 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +191,7 @@
 		FFDC7A822B10A55800FC8F71 /* NewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITests.swift; sourceTree = "<group>"; };
 		FFDC7A842B10A55800FC8F71 /* NewsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FFDC7A912B10A64D00FC8F71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FFF41E392B45D64E004F96E8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 				FFDC7A6B2B10A55800FC8F71 /* Assets.xcassets */,
 				FFDC7A6D2B10A55800FC8F71 /* Preview Content */,
 				FFDC7A912B10A64D00FC8F71 /* SceneDelegate.swift */,
+				FFF41E392B45D64E004F96E8 /* SettingsView.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFDC7A6A2B10A55700FC8F71 /* HomeView.swift in Sources */,
+				FFF41E3A2B45D64E004F96E8 /* SettingsView.swift in Sources */,
 				FFDC7A682B10A55700FC8F71 /* NewsApp.swift in Sources */,
 				FFDC7A922B10A64D00FC8F71 /* SceneDelegate.swift in Sources */,
 			);
@@ -830,7 +834,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = News/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -861,7 +865,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = News/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
