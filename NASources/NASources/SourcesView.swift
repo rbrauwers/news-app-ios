@@ -68,7 +68,7 @@ struct SourcesList : View {
         List(filteredSources, id: \.id) {
             SourceItem(source: $0)
         }
-        .backport.contentUnavailable(condition: filteredSources.isEmpty, text: searchTerm)
+        .backport.contentUnavailable(condition: filteredSources.isEmpty && !searchTerm.isEmpty, text: searchTerm)
         .backport.searchable(text: $searchTerm, prompt: "Search sources")
     }
     
