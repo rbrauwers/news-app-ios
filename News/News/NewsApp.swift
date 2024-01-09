@@ -11,6 +11,7 @@ import NAData
 import NAModels
 import NANetwork
 import NAProfile
+import NAHeadlines
 import NASources
 import TestUtils
 import Swinject
@@ -52,6 +53,7 @@ struct NewsApp: App {
             .registerNetworkDependencies(uiTesting: uiTesting)
             .registerDataDependencies()
             .registerSourcesDependencies()
+            .registerHeadlinesContainer()
     }
     
     private func load() {
@@ -65,7 +67,6 @@ struct NewsApp: App {
         WindowGroup {
             HomeView()
                 .environmentObject(appState)
-                .environmentObject(globalContainer.resolve(ArticlesRepository.self)!)
                 .environmentObject(globalContainer.resolve(SourcesRepository.self)!)
         }
     }

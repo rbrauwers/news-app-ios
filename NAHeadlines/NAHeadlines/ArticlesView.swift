@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
 import Swinject
 import NACommon
@@ -14,8 +15,7 @@ import NAModels
 import NANetwork
 
 public struct ArticlesView : View {
-    @EnvironmentObject private var articlesRepository: ArticlesRepository
-    
+
     public init() {
         
     }
@@ -23,7 +23,7 @@ public struct ArticlesView : View {
     public var body: some View {
         ArticlesViewContent()
             .environmentObject(
-                ArticlesViewModel(repository: articlesRepository)
+                globalContainer.resolve(ArticlesViewModel.self)!
             )
     }
     
@@ -36,35 +36,30 @@ struct ArticlesViewContent : View {
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
-                if let error = viewModel.repository.error {
+                switch viewModel.uiState {
+                case .loading:
+                    if #available(iOS 14.0, *) {
+                        ProgressView()
+                    }
+                case .error(let error):
                     Text(error.localizedDescription)
                         .padding(10)
                         .frame(maxWidth: .infinity, minHeight: 40)
                         .background(Color.red)
                         .foregroundColor(.white)
-                }
-                
-                HStack(spacing: 8) {
-                    Text("Hello, \(appState.user.name)")
-                        .backport
-                        .accessibilityIdentifier("username")
+                case .success(let articles):
+                    HStack(spacing: 8) {
+                        Text("Hello, \(appState.user.name)")
+                            .backport
+                            .accessibilityIdentifier("username")
+                        
+                        Image(.test)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
                     
-                    Image(.test)
-                        .resizable()
-                        .frame(width: 20, height: 20)
+                    ArticlesList(articles: articles)
                 }
-                
-                if viewModel.repository.isLoading {
-                    if #available(iOS 14.0, *) {
-                        ProgressView()
-                    }
-                }
-                
-                ArticlesList(
-                    articles: viewModel.repository.articles.compactMap {
-                        ArticleUI(article: $0)
-                    }
-                )
             }
             
             Image(systemName: "heart")
@@ -218,23 +213,38 @@ private struct ScaleButtonStyle: ButtonStyle {
         .registerDataDependencies()
     
     return ArticlesList(articles: [article, article2])
-            .environmentObject(ArticlesViewModel(repository: container.resolve(ArticlesRepository.self)!))
+            //.environmentObject(ArticlesViewModel(repository: container.resolve(DefaultArticlesRepository.self)!))
 }
 
-@MainActor
 class ArticlesViewModel : ObservableObject {
     
     @Published var liking: Bool = false
     @Published var likedArticles = [ArticleUI]()
+    @Published public private(set) var uiState: StatefulData<[ArticleUI]> = .loading
+        
+    private var cancellable: AnyCancellable?
     private var likingTask: Task<(),Error>? = nil
-    
-    // TODO: should be private
-    public let repository: ArticlesRepository
+    private let repository: ArticlesRepository
         
     init(repository: ArticlesRepository) {
         self.repository = repository
+        observeRepository()
     }
     
+    private func observeRepository() {
+        cancellable = repository
+            .dataPublisher
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { data in
+                self.uiState = data.map { articles in
+                    articles.compactMap {
+                        ArticleUI(article: $0)
+                    }
+                }
+            })
+    }
+    
+    @MainActor
     func like(article: ArticleUI) {
         if isLiked(article: article) {
             likedArticles.removeAll(where: { $0 == article })
