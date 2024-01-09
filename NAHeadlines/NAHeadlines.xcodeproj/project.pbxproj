@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF34B0FC2B45A67700638294 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF34B0FB2B45A67700638294 /* Swinject */; };
+		FF52DCF12B48912D004A05C6 /* HeadlineAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF52DCF02B48912D004A05C6 /* HeadlineAssets.xcassets */; };
 		FF8BC21F2B10E5D1000822D2 /* NAHeadlines.docc in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC21E2B10E5D1000822D2 /* NAHeadlines.docc */; };
 		FF8BC2202B10E5D1000822D2 /* NAHeadlines.h in Headers */ = {isa = PBXBuildFile; fileRef = FF8BC21D2B10E5D1000822D2 /* NAHeadlines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF8BC2332B10EBE8000822D2 /* ArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8BC2322B10EBE8000822D2 /* ArticlesView.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF52DCF02B48912D004A05C6 /* HeadlineAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HeadlineAssets.xcassets; sourceTree = "<group>"; };
 		FF8BC21A2B10E5D1000822D2 /* NAHeadlines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NAHeadlines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8BC21D2B10E5D1000822D2 /* NAHeadlines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NAHeadlines.h; sourceTree = "<group>"; };
 		FF8BC21E2B10E5D1000822D2 /* NAHeadlines.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NAHeadlines.docc; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				FF8BC21E2B10E5D1000822D2 /* NAHeadlines.docc */,
 				FF8BC2322B10EBE8000822D2 /* ArticlesView.swift */,
 				FF8BC23B2B14AB1E000822D2 /* ArticleUI.swift */,
+				FF52DCF02B48912D004A05C6 /* HeadlineAssets.xcassets */,
 			);
 			path = NAHeadlines;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF52DCF12B48912D004A05C6 /* HeadlineAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

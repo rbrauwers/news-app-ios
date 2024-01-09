@@ -44,9 +44,15 @@ struct ArticlesViewContent : View {
                         .foregroundColor(.white)
                 }
                 
-                Text("Hello, \(appState.user.name)")
-                    .backport
-                    .accessibilityIdentifier("username")
+                HStack(spacing: 8) {
+                    Text("Hello, \(appState.user.name)")
+                        .backport
+                        .accessibilityIdentifier("username")
+                    
+                    Image(.test)
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                }
                 
                 if viewModel.repository.isLoading {
                     if #available(iOS 14.0, *) {
