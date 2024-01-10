@@ -18,9 +18,10 @@ public struct Article : Decodable, Identifiable, Hashable {
     public let publishedAt: String?
     public let content: String?
     public var id: Int
+    public var liked: Bool = false
     
     private enum CodingKeys: String, CodingKey {
-        case author, title, description, url, urlToImage, publishedAt, content
+        case author, title, description, url, urlToImage, publishedAt, content, liked
     }
     
     public init(author: String?,
@@ -30,7 +31,8 @@ public struct Article : Decodable, Identifiable, Hashable {
                 urlToImage: String?,
                 publishedAt: String?,
                 content: String?,
-                id: Int
+                id: Int,
+                liked: Bool
     ) {
         self.author = author
         self.title = title
@@ -40,6 +42,7 @@ public struct Article : Decodable, Identifiable, Hashable {
         self.publishedAt = publishedAt
         self.content = content
         self.id = id
+        self.liked = liked
     }
     
     public init(from decoder: Decoder) throws {
@@ -51,6 +54,7 @@ public struct Article : Decodable, Identifiable, Hashable {
         self.urlToImage = try container.decodeIfPresent(String.self, forKey: .urlToImage)
         self.publishedAt = try container.decodeIfPresent(String.self, forKey: .publishedAt)
         self.content = try container.decodeIfPresent(String.self, forKey: .content)
+        self.liked = try container.decodeIfPresent(Bool.self, forKey: .liked) ?? false
         self.id = "\(publishedAt ?? "")\(author ?? "")".hash
     }
     

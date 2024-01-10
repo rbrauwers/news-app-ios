@@ -23,7 +23,8 @@ public class NetworkDataSourceMock : NetworkDataSource {
                 urlToImage: "",
                 publishedAt: "",
                 content: "",
-                id: 1),
+                id: 1,
+                liked: true),
         
         Article(author: "John",
                 title: "Article2",
@@ -32,7 +33,8 @@ public class NetworkDataSourceMock : NetworkDataSource {
                 urlToImage: "",
                 publishedAt: "",
                 content: "",
-                id: 2)
+                id: 2,
+                liked: false)
     ]
     
     public static let stableNetworkDataSource = NetworkDataSourceMock(sources: sources, articles: articles, shouldFail: false)

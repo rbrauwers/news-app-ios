@@ -15,6 +15,7 @@ struct ArticleUI : Identifiable, Equatable {
     let content: String
     let publishedAt: String?
     let urlToImage: String?
+    let liked: Bool
     
     static var inputFormatter: ISO8601DateFormatter {
         get {
@@ -36,7 +37,8 @@ struct ArticleUI : Identifiable, Equatable {
         author = article.author ?? "N/A"
         content = article.content ?? "N/A"
         urlToImage = article.urlToImage
-        
+        liked = article.liked
+
         if let publishedAt = article.publishedAt, let date = ArticleUI.inputFormatter.date(from: publishedAt) {
             self.publishedAt = ArticleUI.outputFormatter.string(from: date)
         } else {

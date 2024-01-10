@@ -62,11 +62,13 @@ struct ArticlesViewContent : View {
                 }
             }
             
+            /*
             Image(systemName: "heart")
                 .resizable()
                 .frame(width: 200, height: 200, alignment: .center)
                 .opacity(viewModel.liking ? 1.0 : 0.0)
                 .animation(.easeInOut, value: viewModel.liking)
+             */
         }
     }
     
@@ -146,12 +148,10 @@ private struct ArticleItem : View {
                 Spacer()
                 
                 Button {
-                    viewModel.like(article: article)
+                    viewModel.toggleLiked(article: article)
                 } label: {
-                    let isLiked = viewModel.isLiked(article: article)
-                    
-                    Image(systemName: isLiked ? "heart.fill" : "heart")
-                        .backport.accessibilityLabel(isLiked ? "liked" : "notLiked")
+                    Image(systemName: article.liked ? "heart.fill" : "heart")
+                        .backport.accessibilityLabel(article.liked ? "liked" : "notLiked")
                 }
                 .foregroundColor(Color._accent)
                 .buttonStyle(ScaleButtonStyle())
@@ -193,7 +193,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             urlToImage: "https://images.pexels.com/photos/3373744/pexels-photo-3373744.jpeg",
             publishedAt: "2023-11-26T01:44:52Z",
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
-            id: 1)
+            id: 1,
+            liked: true)
         )
 
     let article2 = ArticleUI(
@@ -205,7 +206,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             urlToImage: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg",
             publishedAt: "2023-10-05T04:14:00Z",
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
-            id: 2)
+            id: 2,
+            liked: false)
         )
 
     let container = Container()
@@ -218,14 +220,11 @@ private struct ScaleButtonStyle: ButtonStyle {
 
 class ArticlesViewModel : ObservableObject {
     
-    @Published var liking: Bool = false
-    @Published var likedArticles = [ArticleUI]()
     @Published public private(set) var uiState: StatefulData<[ArticleUI]> = .loading
-        
+    
     private var cancellable: AnyCancellable?
-    private var likingTask: Task<(),Error>? = nil
     private let repository: ArticlesRepository
-        
+    
     init(repository: ArticlesRepository) {
         self.repository = repository
         observeRepository()
@@ -245,23 +244,8 @@ class ArticlesViewModel : ObservableObject {
     }
     
     @MainActor
-    func like(article: ArticleUI) {
-        if isLiked(article: article) {
-            likedArticles.removeAll(where: { $0 == article })
-        } else {
-            likedArticles.append(article)
-        }
-        
-        likingTask?.cancel()
-        liking = true
-        
-        likingTask = Task {
-            try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
-            liking = false
-        }
+    func toggleLiked(article: ArticleUI) {
+        let _ = repository.updateLiked(articleId: article.id, liked: article.liked ? false : true)
     }
     
-    func isLiked(article: ArticleUI) -> Bool {
-        return likedArticles.contains(where: { $0 == article })
-    }
 }

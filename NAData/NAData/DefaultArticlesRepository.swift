@@ -17,6 +17,7 @@ public protocol ArticlesRepository {
     typealias DATA = StatefulData<[Article]>
     
     func load() async
+    func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors>
     
     var data: DATA { get }
     var publishedData: Published<DATA> { get }
@@ -47,15 +48,27 @@ final class DefaultArticlesRepository: ArticlesRepository, ObservableObject {
 
         do {
             let articles = try await networkDataSource.getArticles()
+            
             articles.forEach { article in
                 articlesDAO.upsert(article: article)
             }
             
-            data = .success(articles)
+            await loadFromDAO()
         }
         catch {
             data = .error(error)
         }
+    }
+    
+    @MainActor
+    public func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors> {
+        let result = articlesDAO.updateLiked(articleId: articleId, liked: liked)
+        
+        if case .success(let article) = result {
+            publishArticle(article: article)
+        }
+
+        return result
     }
     
     @MainActor
@@ -66,6 +79,19 @@ final class DefaultArticlesRepository: ArticlesRepository, ObservableObject {
                 data = .success(articles)
             }
         }
+    }
+    
+    @MainActor
+    private func publishArticle(article: Article) {
+        guard case let DATA.success(articles) = data,
+              let index = (articles.firstIndex { $0.id == article.id })
+        else {
+            return
+        }
+        
+        var mutableArticles = articles
+        mutableArticles[index] = article
+        data = .success(mutableArticles)
     }
     
 }
