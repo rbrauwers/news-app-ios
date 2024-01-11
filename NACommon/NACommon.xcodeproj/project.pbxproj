@@ -13,6 +13,8 @@
 		FF3619F42B28651A00D8FF8D /* NACommon.h in Headers */ = {isa = PBXBuildFile; fileRef = FF3619F12B28651A00D8FF8D /* NACommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF361A002B28652A00D8FF8D /* GlobalContainer.swift */; };
 		FF361A042B28654200D8FF8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FF361A032B28654200D8FF8D /* Swinject */; };
+		FFA2CA7B2B500C7800660053 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA2CA7A2B500C7800660053 /* CheckboxToggleStyle.swift */; };
+		FFC24F5F2B4DC12800A68A02 /* StatefulData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC24F5E2B4DC12800A68A02 /* StatefulData.swift */; };
 		FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */; };
 		FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD9C982B3EF49100D4915D /* Backport.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,8 @@
 		FF3619F12B28651A00D8FF8D /* NACommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NACommon.h; sourceTree = "<group>"; };
 		FF3619F22B28651A00D8FF8D /* NACommon.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = NACommon.docc; sourceTree = "<group>"; };
 		FF361A002B28652A00D8FF8D /* GlobalContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalContainer.swift; sourceTree = "<group>"; };
+		FFA2CA7A2B500C7800660053 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
+		FFC24F5E2B4DC12800A68A02 /* StatefulData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulData.swift; sourceTree = "<group>"; };
 		FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		FFDD9C982B3EF49100D4915D /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +70,8 @@
 				FFDD9C932B3EE2AE00D4915D /* ViewExtensions.swift */,
 				FFDD9C982B3EF49100D4915D /* Backport.swift */,
 				FF34B0FF2B45AB4D00638294 /* ColorExtensions.swift */,
+				FFC24F5E2B4DC12800A68A02 /* StatefulData.swift */,
+				FFA2CA7A2B500C7800660053 /* CheckboxToggleStyle.swift */,
 			);
 			path = NACommon;
 			sourceTree = "<group>";
@@ -158,9 +164,11 @@
 			files = (
 				FF361A012B28652A00D8FF8D /* GlobalContainer.swift in Sources */,
 				FF34B1002B45AB4D00638294 /* ColorExtensions.swift in Sources */,
+				FFA2CA7B2B500C7800660053 /* CheckboxToggleStyle.swift in Sources */,
 				FFDD9C942B3EE2AE00D4915D /* ViewExtensions.swift in Sources */,
 				FF3619F32B28651A00D8FF8D /* NACommon.docc in Sources */,
 				FFDD9C992B3EF49100D4915D /* Backport.swift in Sources */,
+				FFC24F5F2B4DC12800A68A02 /* StatefulData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import SwiftUI
 import Swinject
 import NACommon
@@ -14,8 +15,7 @@ import NAModels
 import NANetwork
 
 public struct ArticlesView : View {
-    @EnvironmentObject private var articlesRepository: ArticlesRepository
-    
+
     public init() {
         
     }
@@ -23,7 +23,7 @@ public struct ArticlesView : View {
     public var body: some View {
         ArticlesViewContent()
             .environmentObject(
-                ArticlesViewModel(repository: articlesRepository)
+                globalContainer.resolve(ArticlesViewModel.self)!
             )
     }
     
@@ -36,42 +36,39 @@ struct ArticlesViewContent : View {
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
-                if let error = viewModel.repository.error {
+                switch viewModel.uiState {
+                case .loading:
+                    if #available(iOS 14.0, *) {
+                        ProgressView()
+                    }
+                case .error(let error):
                     Text(error.localizedDescription)
                         .padding(10)
                         .frame(maxWidth: .infinity, minHeight: 40)
                         .background(Color.red)
                         .foregroundColor(.white)
-                }
-                
-                HStack(spacing: 8) {
-                    Text("Hello, \(appState.user.name)")
-                        .backport
-                        .accessibilityIdentifier("username")
+                case .success(let articles):
+                    HStack(spacing: 8) {
+                        Text("Hello, \(appState.user.name)")
+                            .backport
+                            .accessibilityIdentifier("username")
+                        
+                        Image(.test)
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                    }
                     
-                    Image(.test)
-                        .resizable()
-                        .frame(width: 20, height: 20)
+                    ArticlesList(articles: articles)
                 }
-                
-                if viewModel.repository.isLoading {
-                    if #available(iOS 14.0, *) {
-                        ProgressView()
-                    }
-                }
-                
-                ArticlesList(
-                    articles: viewModel.repository.articles.compactMap {
-                        ArticleUI(article: $0)
-                    }
-                )
             }
             
+            /*
             Image(systemName: "heart")
                 .resizable()
                 .frame(width: 200, height: 200, alignment: .center)
                 .opacity(viewModel.liking ? 1.0 : 0.0)
                 .animation(.easeInOut, value: viewModel.liking)
+             */
         }
     }
     
@@ -151,12 +148,10 @@ private struct ArticleItem : View {
                 Spacer()
                 
                 Button {
-                    viewModel.like(article: article)
+                    viewModel.toggleLiked(article: article)
                 } label: {
-                    let isLiked = viewModel.isLiked(article: article)
-                    
-                    Image(systemName: isLiked ? "heart.fill" : "heart")
-                        .backport.accessibilityLabel(isLiked ? "liked" : "notLiked")
+                    Image(systemName: article.liked ? "heart.fill" : "heart")
+                        .backport.accessibilityLabel(article.liked ? "liked" : "notLiked")
                 }
                 .foregroundColor(Color._accent)
                 .buttonStyle(ScaleButtonStyle())
@@ -198,7 +193,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             urlToImage: "https://images.pexels.com/photos/3373744/pexels-photo-3373744.jpeg",
             publishedAt: "2023-11-26T01:44:52Z",
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
-            id: 1)
+            id: 1,
+            liked: true)
         )
 
     let article2 = ArticleUI(
@@ -210,7 +206,8 @@ private struct ScaleButtonStyle: ButtonStyle {
             urlToImage: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg",
             publishedAt: "2023-10-05T04:14:00Z",
             content: "The content1 content2 content3 content4 content5 content6 content7 content8 content9 content10 content11 content12 content13 content14 content15 content16 content17",
-            id: 2)
+            id: 2,
+            liked: false)
         )
 
     let container = Container()
@@ -218,40 +215,37 @@ private struct ScaleButtonStyle: ButtonStyle {
         .registerDataDependencies()
     
     return ArticlesList(articles: [article, article2])
-            .environmentObject(ArticlesViewModel(repository: container.resolve(ArticlesRepository.self)!))
+            //.environmentObject(ArticlesViewModel(repository: container.resolve(DefaultArticlesRepository.self)!))
 }
 
-@MainActor
 class ArticlesViewModel : ObservableObject {
     
-    @Published var liking: Bool = false
-    @Published var likedArticles = [ArticleUI]()
-    private var likingTask: Task<(),Error>? = nil
+    @Published public private(set) var uiState: StatefulData<[ArticleUI]> = .loading
     
-    // TODO: should be private
-    public let repository: ArticlesRepository
-        
+    private var cancellable: AnyCancellable?
+    private let repository: ArticlesRepository
+    
     init(repository: ArticlesRepository) {
         self.repository = repository
+        observeRepository()
     }
     
-    func like(article: ArticleUI) {
-        if isLiked(article: article) {
-            likedArticles.removeAll(where: { $0 == article })
-        } else {
-            likedArticles.append(article)
-        }
-        
-        likingTask?.cancel()
-        liking = true
-        
-        likingTask = Task {
-            try await Task.sleep(nanoseconds: 1 * 1_000_000_000)
-            liking = false
-        }
+    private func observeRepository() {
+        cancellable = repository
+            .dataPublisher
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { data in
+                self.uiState = data.map { articles in
+                    articles.compactMap {
+                        ArticleUI(article: $0)
+                    }
+                }
+            })
     }
     
-    func isLiked(article: ArticleUI) -> Bool {
-        return likedArticles.contains(where: { $0 == article })
+    @MainActor
+    func toggleLiked(article: ArticleUI) {
+        let _ = repository.updateLiked(articleId: article.id, liked: article.liked ? false : true)
     }
+    
 }

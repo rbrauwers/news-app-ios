@@ -11,3 +11,8 @@ public enum DataError: Error {
     case networkError
     case invalidData
 }
+
+public enum NADatabaseErrors : Error {
+    case dataNotFound
+    case transactionError
+}

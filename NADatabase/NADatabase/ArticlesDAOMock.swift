@@ -12,12 +12,12 @@ public class ArticlesDAOMock : ArticlesDAO {
     
     public init() {}
     
-    public func insert(article: Article) -> Result<Void, Error> {
-        return Result.success(())
+    public func insert(article: Article) -> Result<Article, Error> {
+        return Result.success((article))
     }
     
-    public func upsert(article: Article) {
-        
+    public func upsert(article: Article) -> Result<Article, Error>  {
+        return Result.success((article))
     }
     
     public func load() -> Result<[Article], Error> {
@@ -26,6 +26,15 @@ public class ArticlesDAOMock : ArticlesDAO {
     
     public func loadAsync() async -> Result<[Article], Error> {
         return Result.success([])
+    }
+    
+    public func updateLiked(articleId: Int, liked: Bool) -> Result<NAModels.Article, NAModels.NADatabaseErrors> {
+        return Result.failure(.dataNotFound)
+    }
+    
+    @available(iOS 15.0, *)
+    public func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error> {
+        return Result.failure(NADatabaseErrors.dataNotFound)
     }
     
 }

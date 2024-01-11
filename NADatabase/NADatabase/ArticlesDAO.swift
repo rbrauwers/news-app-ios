@@ -11,14 +11,20 @@ import NAModels
 
 public protocol ArticlesDAO {
     
-    func insert(article: Article) -> Result<Void, Error>
+    func insert(article: Article) -> Result<Article, Error>
     
-    func upsert(article: Article)
+    @discardableResult
+    func upsert(article: Article) -> Result<Article, Error>
     
     func load() -> Result<[Article], Error>
     
     @available(iOS 15.0, *)
     func loadAsync() async -> Result<[Article], Error>
+    
+    func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors>
+    
+    @available(iOS 15.0, *)
+    func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error>
 }
 
 class DefaultArticlesDAO : ArticlesDAO {
@@ -29,20 +35,21 @@ class DefaultArticlesDAO : ArticlesDAO {
         self.persistentContainer = persistentContainer
     }
     
-    func insert(article: Article) -> Result<Void, Error> {
+    @discardableResult
+    func insert(article: Article) -> Result<Article, Error> {
         return Result {
-            let _ = article.toEntity(context: persistentContainer.viewContext)
+            let entity = article.toEntity(context: persistentContainer.viewContext)
             try persistentContainer.viewContext.save()
+            return entity.toArticle()
         }
     }
     
-    func upsert(article: Article) {
+    func upsert(article: Article) -> Result<Article, Error> {
         guard let entity = load(articleId: article.id) else {
-            let result = insert(article: article)
-            return
+            return insert(article: article)
         }
         
-        let result = update(entity: entity, with: article)
+        return update(entity: entity, with: article, ignoreLocalProperties: true)
     }
 
     func load() -> Result<[Article], Error> {
@@ -65,17 +72,54 @@ class DefaultArticlesDAO : ArticlesDAO {
         }
     }
     
-    private func update(entity: ArticleEntity, with article: Article) -> Result<Void, Error> {
+    func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors> {
+        guard let entity = load(articleId: articleId) else {
+            return Result.failure(NADatabaseErrors.dataNotFound)
+        }
+        
         return Result {
-            entity.update(with: article)
+            entity.setValue(liked, forKey: ArticleEntity.CodingKeys.liked.rawValue)
             try persistentContainer.viewContext.save()
+            let article = entity.toArticle()
+            return article
+        }.mapError { error in
+            return NADatabaseErrors.transactionError
+        }
+    }
+    
+    @available(iOS 15.0, *)
+    func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error> {
+        do {
+            for (id, liked) in likes {
+                if let entity = load(articleId: id) {
+                    entity.setValue(liked, forKey: ArticleEntity.CodingKeys.liked.rawValue)
+                }
+            }
+            
+            try await persistentContainer.viewContext.perform {
+                return try self.persistentContainer.viewContext.save()
+            }
+        } catch {
+            return .failure(NADatabaseErrors.transactionError)
+        }
+        
+        return await loadAsync()
+    }
+
+    @discardableResult
+    private func update(entity: ArticleEntity, with article: Article, ignoreLocalProperties: Bool) -> Result<Article, Error> {
+        return Result {
+            entity.update(with: article, ignoreLocalProperties: ignoreLocalProperties)
+            try persistentContainer.viewContext.save()
+            return entity.toArticle()
         }
     }
     
     private func load(articleId: Int) -> ArticleEntity? {
         do {
             let request = ArticleEntity.fetchRequest(articleId: articleId)
-            return try persistentContainer.viewContext.fetch(request).first
+            let entity = try persistentContainer.viewContext.fetch(request).first
+            return entity
         } catch {
             debugPrint("load(articleId: \(articleId)) error: \(error)")
             return nil
@@ -95,6 +139,7 @@ private extension Article {
         entity.urlToImage = self.urlToImage
         entity.publishedAt = self.publishedAt
         entity.customId = self.id
+        entity.liked = self.liked
         return entity
     }
     
@@ -111,16 +156,25 @@ private extension ArticleEntity {
             urlToImage: self.urlToImage,
             publishedAt: self.publishedAt,
             content: self.content,
-            id: self.customId)
+            id: self.customId,
+            liked: self.liked)
     }
+
     
-    func update(with article: Article) {
+    /// Update an entity with the model counterpart
+    /// - Parameter article: source article to be "copied" from
+    /// - Parameter ignoreLocalProperties: wether local properties should be updated or not
+    func update(with article: Article, ignoreLocalProperties: Bool) {
         self.author = article.author
         self.title = article.title
         self.url = article.url
         self.urlToImage = article.urlToImage
         self.publishedAt = article.publishedAt
         self.content = article.content
+        
+        if !ignoreLocalProperties {
+            self.liked = article.liked
+        }
     }
     
 }

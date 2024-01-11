@@ -8,11 +8,26 @@
 import Foundation
 import SwiftUI
 import NACommon
+import NAModels
 import LocalAuthentication
 
 struct SettingsView : View {
+        
+    var body: some View {
+        SettingsViewContent()
+            .backport.toolbarTitle("Settings")
+            .environmentObject(
+                globalContainer.resolve(SettingsViewModel.self)!
+            )
+    }
+   
+}
+
+private struct SettingsViewContent: View {
     
+    @EnvironmentObject private var viewModel: SettingsViewModel
     @State private var biometricStatus: BiometricStatus = .notRequested
+    @State private var showingSheet = false
     
     var body: some View {
         Form {
@@ -31,8 +46,19 @@ struct SettingsView : View {
                 Text("Biometrics success")
             }
             
-
-        }.backport.toolbarTitle("Settings")
+            HStack {
+                Text("Likes count: \(viewModel.uiState.likedArticlesCount)")
+                Spacer()
+                Button {
+                    showingSheet.toggle()
+                } label: {
+                    Text("SEE ALL")
+                }.sheet(isPresented: $showingSheet) {
+                    LikesSheet(articles: viewModel.uiState.likedArticles ?? [])
+                }
+            }
+            
+        }
     }
     
     private func authenticate() {
@@ -55,7 +81,54 @@ struct SettingsView : View {
             }
         }
     }
-   
+    
+}
+
+private struct LikesSheet : View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject private var viewModel: SettingsViewModel
+    @State var articles: [LikedArticleUi]
+    
+    var body: some View {
+        VStack {
+            Spacer(minLength: 20)
+            
+            Text("Liked articles")
+                .font(.title)
+            
+            List($articles, id: \.id) { (article : Binding<LikedArticleUi>) in
+                HStack(alignment: .center, spacing: 4.0) {
+                    Text(article.wrappedValue.title)
+                        .font(.caption)
+                    
+                    Spacer()
+                    
+                    Toggle(isOn: article.isSelected) {
+                    }
+                    .backport.checkboxToggleStyle()
+                }
+                .frame(height: 50)
+                .fixedSize(horizontal: false, vertical: true)
+            }
+            
+            Button {
+                presentationMode.wrappedValue.dismiss()
+                viewModel.removeLikes(from: articles)
+            } label: {
+                Text("REMOVE")
+            }
+            .disabled(!articles.contains { $0.isSelected })
+            
+            Spacer(minLength: 4)
+            
+        }
+    }
+    
+}
+
+#Preview {
+    return SettingsView()
 }
 
 private enum BiometricStatus {
@@ -64,3 +137,4 @@ private enum BiometricStatus {
     case error(error: Error?)
     case success
 }
+

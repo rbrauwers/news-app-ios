@@ -96,5 +96,13 @@ public extension Backport {
             content
         }
     }
+ 
+    @ViewBuilder func checkboxToggleStyle() -> some View {
+        if #available(iOS 15.0, *) {
+            content.toggleStyle(CheckboxToggleStyle())
+        } else {
+            content.toggleStyle(.switch)
+        }
+    }
     
 }

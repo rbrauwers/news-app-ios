@@ -25,7 +25,7 @@ public extension Container {
                 fatalError("Could not resolve articles DAO")
             }
             
-            return ArticlesRepository(networkDataSource: networkDataSource, articlesDAO: dao)
+            return DefaultArticlesRepository(networkDataSource: networkDataSource, articlesDAO: dao)
         }
         .inObjectScope(.container)
         
