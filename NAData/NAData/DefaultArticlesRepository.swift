@@ -17,7 +17,11 @@ public protocol ArticlesRepository {
     typealias DATA = StatefulData<[Article]>
     
     func load() async
+    
     func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors>
+    
+    @available(iOS 15.0, *)
+    func updateLikes(_ likes: [Int : Bool]) async
     
     var data: DATA { get }
     var publishedData: Published<DATA> { get }
@@ -69,6 +73,15 @@ final class DefaultArticlesRepository: ArticlesRepository, ObservableObject {
         }
 
         return result
+    }
+    
+    @MainActor
+    @available(iOS 15.0, *)
+    public func updateLikes(_ likes: [Int : Bool]) async {
+        let result = await articlesDAO.updateLikes(likes)
+        if case .success(let articles) = result {
+            data = .success(articles)
+        }
     }
     
     @MainActor

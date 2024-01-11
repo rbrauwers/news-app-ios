@@ -32,4 +32,9 @@ public class ArticlesDAOMock : ArticlesDAO {
         return Result.failure(.dataNotFound)
     }
     
+    @available(iOS 15.0, *)
+    public func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error> {
+        return Result.failure(NADatabaseErrors.dataNotFound)
+    }
+    
 }

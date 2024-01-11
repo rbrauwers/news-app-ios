@@ -22,6 +22,9 @@ public protocol ArticlesDAO {
     func loadAsync() async -> Result<[Article], Error>
     
     func updateLiked(articleId: Int, liked: Bool) -> Result<Article, NADatabaseErrors>
+    
+    @available(iOS 15.0, *)
+    func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error>
 }
 
 class DefaultArticlesDAO : ArticlesDAO {
@@ -82,6 +85,25 @@ class DefaultArticlesDAO : ArticlesDAO {
         }.mapError { error in
             return NADatabaseErrors.transactionError
         }
+    }
+    
+    @available(iOS 15.0, *)
+    func updateLikes(_ likes: [Int : Bool]) async -> Result<[Article], Error> {
+        do {
+            for (id, liked) in likes {
+                if let entity = load(articleId: id) {
+                    entity.setValue(liked, forKey: ArticleEntity.CodingKeys.liked.rawValue)
+                }
+            }
+            
+            try await persistentContainer.viewContext.perform {
+                return try self.persistentContainer.viewContext.save()
+            }
+        } catch {
+            return .failure(NADatabaseErrors.transactionError)
+        }
+        
+        return await loadAsync()
     }
 
     @discardableResult

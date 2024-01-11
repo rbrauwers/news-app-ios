@@ -54,6 +54,7 @@ struct NewsApp: App {
             .registerDataDependencies()
             .registerSourcesDependencies()
             .registerHeadlinesContainer()
+            .registerNewsContainer()
     }
     
     private func load() {
