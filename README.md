@@ -3,9 +3,7 @@
 iOS application that displays news and its sources.<br>
 The implementation follows good practices, such as modularization, context isolation, single source of truth, etc.
 
-
-https://github.com/rbrauwers/news-app-ios/blob/main/Videos/ios_native_16_jan_24.mp4
-
+https://github.com/rbrauwers/news-app-ios/assets/3301123/0b00f840-faec-4813-8717-e1b8f50370d1
 
 ## How it works
 Data is fetched from the [News API](https://newsapi.org/).
