@@ -46,6 +46,16 @@ private struct SettingsViewContent: View {
                 Text("Biometrics success")
             }
             
+            if #available(iOS 17.0, *) {
+                NavigationLink(destination: VideosList()) {
+                    Button {
+
+                    } label: {
+                        Text("Videos list")
+                    }
+                }
+            }
+            
             HStack {
                 Text("Likes count: \(viewModel.uiState.likedArticlesCount)")
                 Spacer()

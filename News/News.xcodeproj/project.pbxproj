@@ -18,6 +18,8 @@
 		FF361A072B28658600D8FF8D /* NACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF3619FF2B28651A00D8FF8D /* NACommon.framework */; };
 		FF361A082B28658600D8FF8D /* NACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF3619FF2B28651A00D8FF8D /* NACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF361A1C2B2870F700D8FF8D /* NADatabase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF3619DE2B28618A00D8FF8D /* NADatabase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF5925362B5595F10011410A /* VideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5925352B5595F10011410A /* VideosView.swift */; };
+		FF5925382B5596B10011410A /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5925372B5596B10011410A /* AVKit.framework */; };
 		FF79D8E32B4F03DD00985E20 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79D8E22B4F03DD00985E20 /* SettingsViewModel.swift */; };
 		FF79D8E52B4F064E00985E20 /* NewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79D8E42B4F064E00985E20 /* NewsContainer.swift */; };
 		FF8BC1942B10ACD5000822D2 /* NANetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC1902B10ABE1000822D2 /* NANetwork.framework */; };
@@ -175,6 +177,8 @@
 		FF3619FA2B28651A00D8FF8D /* NACommon.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NACommon.xcodeproj; path = ../../NACommon/NACommon.xcodeproj; sourceTree = "<group>"; };
 		FF55F0392B1F9CC800E16F6C /* News.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = News.xctestplan; sourceTree = "<group>"; };
 		FF55F0602B20D57000E16F6C /* NADataTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NADataTests.xctestplan; sourceTree = "<group>"; };
+		FF5925352B5595F10011410A /* VideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosView.swift; sourceTree = "<group>"; };
+		FF5925372B5596B10011410A /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		FF79D8E22B4F03DD00985E20 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		FF79D8E42B4F064E00985E20 /* NewsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContainer.swift; sourceTree = "<group>"; };
 		FF8BC1722B10A997000822D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 			files = (
 				FF25377D2B21DE3000A3A2C8 /* TestUtils.framework in Frameworks */,
 				FF8BC20E2B10C0C0000822D2 /* NAData.framework in Frameworks */,
+				FF5925382B5596B10011410A /* AVKit.framework in Frameworks */,
 				FF8BC2342B10EE06000822D2 /* NAHeadlines.framework in Frameworks */,
 				FF8BC1B72B10AF4C000822D2 /* NASources.framework in Frameworks */,
 				FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */,
@@ -289,6 +294,7 @@
 		FF8BC1932B10ACD5000822D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF5925372B5596B10011410A /* AVKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				FFF41E392B45D64E004F96E8 /* SettingsView.swift */,
 				FF79D8E22B4F03DD00985E20 /* SettingsViewModel.swift */,
 				FF79D8E42B4F064E00985E20 /* NewsContainer.swift */,
+				FF5925352B5595F10011410A /* VideosView.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -668,6 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5925362B5595F10011410A /* VideosView.swift in Sources */,
 				FF79D8E32B4F03DD00985E20 /* SettingsViewModel.swift in Sources */,
 				FFDC7A6A2B10A55700FC8F71 /* HomeView.swift in Sources */,
 				FFF41E3A2B45D64E004F96E8 /* SettingsView.swift in Sources */,
