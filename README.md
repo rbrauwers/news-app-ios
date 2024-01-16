@@ -19,5 +19,8 @@ Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info
 
 
 ## Stack
-- [Swift UI](https://developer.apple.com/xcode/swiftui/)
-- [Swift concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
+- UI: [Swift UI](https://developer.apple.com/xcode/swiftui/)
+- Async operations: [Swift concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
+- Dependency injection: [Swinject](https://github.com/Swinject/Swinject)
+- Local storage: [Core Data](https://developer.apple.com/documentation/coredata/)
+- Graph QL: [Apollo](https://www.apollographql.com/docs/ios/)
