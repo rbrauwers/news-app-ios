@@ -3,9 +3,7 @@
 iOS application that displays news and its sources.<br>
 The implementation follows good practices, such as modularization, context isolation, single source of truth, etc.
 
-
-https://github.com/rbrauwers/news-app-ios/blob/main/Videos/ios_native_16_jan_24.mp4
-
+https://github.com/rbrauwers/news-app-ios/assets/3301123/0b00f840-faec-4813-8717-e1b8f50370d1
 
 ## How it works
 Data is fetched from the [News API](https://newsapi.org/).
@@ -21,5 +19,8 @@ Create an [API Key](https://newsapi.org/account) and place it at `NANetwork/Info
 
 
 ## Stack
-- [Swift UI](https://developer.apple.com/xcode/swiftui/)
-- [Swift concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
+- UI: [Swift UI](https://developer.apple.com/xcode/swiftui/)
+- Async operations: [Swift concurrency](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
+- Dependency injection: [Swinject](https://github.com/Swinject/Swinject)
+- Local storage: [Core Data](https://developer.apple.com/documentation/coredata/)
+- Graph QL: [Apollo](https://www.apollographql.com/docs/ios/)
