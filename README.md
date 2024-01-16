@@ -3,9 +3,8 @@
 iOS application that displays news and its sources.<br>
 The implementation follows good practices, such as modularization, context isolation, single source of truth, etc.
 
-|                                                                            Headlines                                                                             |                                                                           Sources                                                                           |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| <img src="https://github.com/rbrauwers/news-app-ios/blob/main/Screenshots/headlines.png" alt="News app (iOS)" width="300"/> | <img src="https://github.com/rbrauwers/news-app-ios/blob/main/Screenshots/sources.png" alt="News app (iOS)" width="300"/> |
+
+https://github.com/rbrauwers/news-app-ios/blob/main/Videos/ios_native_16_jan_24.mp4
 
 
 ## How it works
