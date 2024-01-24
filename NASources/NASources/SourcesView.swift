@@ -39,6 +39,10 @@ struct SourcesViewContent : View {
                 }
             }
             
+            Links()
+            
+            PlayerView()
+            
             SourcesList(sources: repository.sources.compactMap {
                 SourceUI(source: $0)
             })
@@ -65,11 +69,12 @@ struct SourcesList : View {
     }
     
     var body: some View {
-        List(filteredSources, id: \.id) {
-            SourceItem(source: $0)
+        List(filteredSources, id: \.id) { source in
+            SourceItem(source: source)
         }
         .backport.contentUnavailable(condition: filteredSources.isEmpty && !searchTerm.isEmpty, text: searchTerm)
         .backport.searchable(text: $searchTerm, prompt: "Search sources")
+        .listStyle(.plain)
     }
     
 }
@@ -94,6 +99,134 @@ struct SourceItem : View {
     }
     
 }
+
+struct Links : View {
+    
+    var body: some View {
+        Group {
+            if #available(iOS 14.0, *) {
+                NavigationLink(destination: Screen1()
+                    //.environmentObject(Screen1ViewModel())
+                ) {
+                    Text("Screen1")
+                }.buttonStyle(.plain)
+                
+                Spacer(minLength: 20)
+                
+                NavigationLink("Other approach screen1") {
+                    Screen1()
+                        //.environmentObject(Screen1ViewModel())
+                }
+                
+                Spacer(minLength: 20)
+            }
+        
+            if #available(iOS 15.0, *) {
+                NavigationLink(destination: Screen2()) {
+                    Text("Screen2")
+                }.buttonStyle(.bordered)
+            }
+            
+            Spacer(minLength: 20)
+            
+            if #available(iOS 14.0, *) {
+                NavigationLink {
+                    Screen2()
+                } label: {
+                    Label("Other approach screen2", systemImage: "folder")
+                }
+            }
+        }
+    }
+    
+}
+
+@available(iOS 14.0, *)
+struct Screen1 : View {
+    @StateObject private var viewModel: Screen1ViewModel = Screen1ViewModel()
+    
+    var body: some View {
+        Text("Screen1. State: \(viewModel.currentState)")
+    }
+    
+}
+
+struct Screen2 : View {
+
+    var body: some View {
+        Text("Screen2")
+    }
+    
+}
+
+class Screen1ViewModel : ObservableObject {
+    
+    private static var id = 0
+    
+    @Published public private(set) var currentState = "Sunny"
+    
+    @MainActor
+    init() {
+        Screen1ViewModel.id += 1
+        debugPrint("qqq Screen1ViewModel \(Screen1ViewModel.id)")
+        makeCloudy()
+    }
+    
+    @MainActor
+    private func makeCloudy() {
+        Task {
+            try await Task.sleep(nanoseconds: 3_000_000_000)
+            currentState = "Cloudy"
+            
+        }
+    }
+    
+}
+
+
+struct PlayButton: View {
+    /// Changes will be propagated through top hierarchy
+    @Binding var isPlaying: Bool
+    
+    /// Changes will not be propagated through top hierarchy
+    //@State var isPlaying: Bool
+        
+    let onButtonClick: () -> ()
+    
+    var body: some View {
+        Button(action: {
+            self.isPlaying.toggle()
+            
+            Task {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    onButtonClick()
+                }
+            }
+        }) {
+            Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+        }
+    }
+}
+
+struct PlayerView: View {
+    @State private var isPlaying: Bool = true
+
+    var body: some View {
+        VStack {
+            Text("Is playing: \(isPlaying ? "true" : "false")")
+            /// Pass a binding
+            PlayButton(isPlaying: $isPlaying, onButtonClick: handleButtonClick)
+            
+            /// Pass a state
+            //PlayButton(isPlaying: isPlaying, onButtonClick: handleButtonClick)
+        }
+    }
+    
+    func handleButtonClick() {
+        debugPrint("handleButtonClick")
+    }
+}
+
 
 #Preview("Sources list") {
     let source = SourceUI(
