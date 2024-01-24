@@ -19,13 +19,13 @@ private enum SelectedTab: String, CaseIterable {
 struct HomeView: View {
     var body: some View {
         if #available(iOS 14.0, *) {
-            TabViewIOS15()
+            TabViewIOS14()
         }
     }
 }
 
 @available(iOS 14.0, *)
-struct TabViewIOS15: View {
+struct TabViewIOS14: View {
     @State private var selectedTab = SelectedTab.headlines
     @State private var title = SelectedTab.headlines.rawValue.capitalized
             

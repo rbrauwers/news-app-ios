@@ -10,8 +10,6 @@ import SwiftUI
 import NAModels
 
 public struct ProfileView : View {
-    @EnvironmentObject private var appState: AppState
-    
     public init() {}
     
     public var body: some View {

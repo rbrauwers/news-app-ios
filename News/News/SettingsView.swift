@@ -67,7 +67,6 @@ private struct SettingsViewContent: View {
                     LikesSheet(articles: viewModel.uiState.likedArticles ?? [])
                 }
             }
-            
         }
     }
     
@@ -113,10 +112,10 @@ private struct LikesSheet : View {
                         .font(.caption)
                     
                     Spacer()
-                    
-                    Toggle(isOn: article.isSelected) {
-                    }
-                    .backport.checkboxToggleStyle()
+
+                    Toggle(isOn: article.isSelected) { }
+                        .backport
+                        .checkboxToggleStyle()
                 }
                 .frame(height: 50)
                 .fixedSize(horizontal: false, vertical: true)
