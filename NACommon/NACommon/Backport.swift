@@ -27,7 +27,7 @@ public extension Backport {
     }
     
     
-    @ViewBuilder func searchable(text: Binding<String>, prompt: String) -> some View {
+    @ViewBuilder func searchable<S>(text: Binding<String>, prompt: S) -> some View where S : StringProtocol {
         if #available(iOS 15, *) {
             content.searchable(text: text, prompt: prompt)
         } else {
@@ -85,11 +85,11 @@ public extension Backport {
         }
     }
     
-    @ViewBuilder func toolbarTitle(_ title: String) -> some View {
+    @ViewBuilder func toolbarTitle(_ title: LocalizedStringKey, bundle: Bundle = Bundle.main) -> some View {
         if #available(iOS 14.0, *) {
             content.toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text(title).font(.largeTitle)
+                    Text(title, bundle: bundle).font(.largeTitle)
                 }
             }
         } else {

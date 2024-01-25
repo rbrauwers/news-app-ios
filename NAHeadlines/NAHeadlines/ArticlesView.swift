@@ -49,7 +49,7 @@ struct ArticlesViewContent : View {
                         .foregroundColor(.white)
                 case .success(let articles):
                     HStack(spacing: 8) {
-                        Text("Hello, \(appState.user.name)")
+                        Text("Hello, \(appState.user.name)", bundle: Bundle.naHeadlines)
                             .backport
                             .accessibilityIdentifier("username")
                         
@@ -99,7 +99,7 @@ private struct ArticlesList : View {
         .backport.contentUnavailable(condition: filteredArticles.isEmpty && !searchTerm.isEmpty, text: searchTerm)
         .listStyle(.plain)
         .backport.accessibilityIdentifier("articlesList")
-        .backport.searchable(text: $searchTerm, prompt: "Search articles")
+        .backport.searchable(text: $searchTerm, prompt: NSLocalizedString("Search articles", bundle: Bundle.naHeadlines, comment: ""))
     }
     
 }

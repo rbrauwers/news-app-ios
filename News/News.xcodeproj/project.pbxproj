@@ -32,6 +32,7 @@
 		FF8BC2352B10EE06000822D2 /* NAHeadlines.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC22B2B10E5D1000822D2 /* NAHeadlines.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF8BC2692B16002F000822D2 /* NAProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; };
 		FF8BC26A2B16002F000822D2 /* NAProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF8BC2612B15FD0E000822D2 /* NAProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF8E897C2B6155F200FFD7EF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FF8E897B2B6155F200FFD7EF /* Localizable.xcstrings */; };
 		FFDC7A682B10A55700FC8F71 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A672B10A55700FC8F71 /* NewsApp.swift */; };
 		FFDC7A6A2B10A55700FC8F71 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC7A692B10A55700FC8F71 /* HomeView.swift */; };
 		FFDC7A6C2B10A55800FC8F71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDC7A6B2B10A55800FC8F71 /* Assets.xcassets */; };
@@ -188,6 +189,7 @@
 		FF8BC1F62B10B91B000822D2 /* NAData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAData.xcodeproj; path = ../../NAData/NAData.xcodeproj; sourceTree = "<group>"; };
 		FF8BC2262B10E5D1000822D2 /* NAHeadlines.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAHeadlines.xcodeproj; path = ../../NAHeadlines/NAHeadlines.xcodeproj; sourceTree = "<group>"; };
 		FF8BC25C2B15FD0D000822D2 /* NAProfile.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NAProfile.xcodeproj; path = ../../NAProfile/NAProfile.xcodeproj; sourceTree = "<group>"; };
+		FF8E897B2B6155F200FFD7EF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		FFDC7A642B10A55700FC8F71 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDC7A672B10A55700FC8F71 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		FFDC7A692B10A55700FC8F71 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				FF79D8E22B4F03DD00985E20 /* SettingsViewModel.swift */,
 				FF79D8E42B4F064E00985E20 /* NewsContainer.swift */,
 				FF5925352B5595F10011410A /* VideosView.swift */,
+				FF8E897B2B6155F200FFD7EF /* Localizable.xcstrings */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = FFDC7A5B2B10A55700FC8F71;
 			packageReferences = (
@@ -651,6 +655,7 @@
 			files = (
 				FFDC7A6F2B10A55800FC8F71 /* Preview Assets.xcassets in Resources */,
 				FFDC7A6C2B10A55800FC8F71 /* Assets.xcassets in Resources */,
+				FF8E897C2B6155F200FFD7EF /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +783,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -834,6 +840,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

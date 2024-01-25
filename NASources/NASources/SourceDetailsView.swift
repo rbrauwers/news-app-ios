@@ -37,14 +37,14 @@ struct Content : View {
     
     var body: some View {
         return Form {
-            Section(header: Text("Source Details")) {
+            Section(header: Text("Source Details", bundle: Bundle.naSources)) {
                 FormItem(title: "Name", value: source.name)
                 FormItem(title: "Category", value: source.category)
                 FormItem(title: "Language", value: source.language)
                 FormItem(title: "Description", value: source.description)
                     .frame(maxHeight: 200)
             }
-            Section(header: Text("Country")) {
+            Section(header: Text("Country", bundle: Bundle.naSources)) {
                 switch viewModel.countryUiState {
                 case .loading:
                     if #available(iOS 14.0, *) {
@@ -63,7 +63,7 @@ struct Content : View {
                 }
             }
         }
-        .backport.toolbarTitle("Source details")
+        .backport.toolbarTitle("Source Details", bundle: Bundle.naSources)
         .onAppear {
             viewModel.loadCountry(code: source.country.uppercased())
         }
@@ -73,15 +73,17 @@ struct Content : View {
 
 
 private struct FormItem : View {
-    let title: String
+    let title: LocalizedStringKey
     let value: String?
     
     var body: some View {
         HStack(alignment: .center) {
-            Text(title)
+            Text(title, bundle: Bundle.naSources)
                 .font(.headline)
             
             Spacer(minLength: 32)
+            
+            Text("")
             
             Text(value ?? "N/A")
                 .font(.body)

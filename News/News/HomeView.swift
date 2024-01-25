@@ -60,7 +60,7 @@ struct TabViewIOS14: View {
 private extension View {
     
     @available(iOS 14.0, *)
-    func customToolbar(title: String) -> some View {
+    func customToolbar(title: LocalizedStringKey) -> some View {
         return self.toolbar {
             ToolbarItem(placement: .principal) {
                 Text(title).font(.largeTitle)

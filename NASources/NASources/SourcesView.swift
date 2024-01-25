@@ -69,7 +69,7 @@ struct SourcesList : View {
             SourceItem(source: $0)
         }
         .backport.contentUnavailable(condition: filteredSources.isEmpty && !searchTerm.isEmpty, text: searchTerm)
-        .backport.searchable(text: $searchTerm, prompt: "Search sources")
+        .backport.searchable(text: $searchTerm, prompt: NSLocalizedString("Search sources", bundle: Bundle.naSources, comment: ""))
     }
     
 }
