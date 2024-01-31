@@ -150,8 +150,15 @@ private struct ArticleItem : View {
                 Button {
                     viewModel.toggleLiked(article: article)
                 } label: {
-                    Image(systemName: article.liked ? "heart.fill" : "heart")
-                        .backport.accessibilityLabel(article.liked ? "liked" : "notLiked")
+                    if #available(iOS 17.0, *) {
+                        Image(systemName: article.liked ? "heart.fill" : "heart")
+                            .contentTransition(.symbolEffect(.replace.offUp))
+                            .backport.accessibilityLabel(article.liked ? "liked" : "notLiked")
+                    } else {
+                        Image(systemName: article.liked ? "heart.fill" : "heart")
+                            .backport.accessibilityLabel(article.liked ? "liked" : "notLiked")
+                    }
+                    
                 }
                 .foregroundColor(Color._accent)
                 .buttonStyle(ScaleButtonStyle())
