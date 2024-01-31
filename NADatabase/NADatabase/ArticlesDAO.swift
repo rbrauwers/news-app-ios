@@ -7,7 +7,10 @@
 
 import Foundation
 import CoreData
+import OSLog
 import NAModels
+
+let logger = Logger(subsystem: "NADatabase", category: "account")
 
 public protocol ArticlesDAO {
     
@@ -121,7 +124,7 @@ class DefaultArticlesDAO : ArticlesDAO {
             let entity = try persistentContainer.viewContext.fetch(request).first
             return entity
         } catch {
-            debugPrint("load(articleId: \(articleId)) error: \(error)")
+            logger.error("load(articleId: \(articleId)) error: \(error)")
             return nil
         }
     }

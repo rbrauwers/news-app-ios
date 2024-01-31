@@ -8,6 +8,9 @@
 import Foundation
 import Apollo
 import NAModels
+import OSLog
+
+let logger = Logger(subsystem: "NANetwork", category: "GraphQL")
 
 public protocol GraphQLDataSource {
     func getCountry(code: String) async -> Result<Country, DataError>
@@ -32,7 +35,7 @@ final class DefaultGraphQLDataSource : GraphQLDataSource {
                         continuation.resume(returning: .failure(.invalidData))
                     }
                 case .failure(let error):
-                    debugPrint("Get country failure: \(error)")
+                    logger.error("Get country failure: \(error)")
                     continuation.resume(returning: .failure(.networkError))
                 }
             }

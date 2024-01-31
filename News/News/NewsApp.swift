@@ -13,8 +13,11 @@ import NANetwork
 import NAProfile
 import NAHeadlines
 import NASources
+import OSLog
 import TestUtils
 import Swinject
+
+let logger = Logger(subsystem: "NewsApp", category: "Main")
 
 @main
 struct WeatherProAppWrapper {
@@ -42,8 +45,9 @@ struct NewsApp: App {
     private let uiTesting: Bool
     
     init() {
-        uiTesting = CommandLine.arguments.contains("-UITesting")
-        debugPrint("uiTesting: \(uiTesting)")
+        let testing = CommandLine.arguments.contains("-UITesting")
+        uiTesting = testing
+        logger.info("uiTesting: \(testing)")
         buildContainer()
         load()
     }
